@@ -1,0 +1,9 @@
+﻿name,desc,maxLevel,startLevel,image
+fangDamage,Bite damage from {0} to {1},5,1,fangs
+fangPenetration,Bite penetrate ({0} -> {1}) enemy behind,2,0,fangs
+fangSplash,Do splash damage to nearby enemies with Bite,-1,-1,fangs
+batDamage,Bat damage from {0} to {1},5,1,bat
+batRange,Bat attack range from {0} to {1},3,1,bat
+batSplash,Do splash damage to nearby enemies with Bat,-1,-1,bat
+cleanBlood,Remove half blood,0,0,blood
+purify,Kill all enemies directly,0,0,vampire
