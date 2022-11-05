@@ -5,10 +5,8 @@ using UnityEngine;
 public class BaseInfo
 {
     public string name;
-
     public string desc;
     public string title;
-    public string start;
 
 }
 public class InfoManager<T,U> :   Singleton<T> where T : MonoBehaviour
@@ -17,11 +15,7 @@ public class InfoManager<T,U> :   Singleton<T> where T : MonoBehaviour
 
     public Dictionary<string, U> infoDict = new Dictionary<string, U>();
     public List<U> infoList;
-    // Start is called before the first frame update
-    void Start()
-    {
 
-    }
     public U getInfo(string infoName)
     {
         if (!infoDict.ContainsKey(infoName)){

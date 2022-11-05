@@ -24,9 +24,8 @@ public class CodeBookMenu : MonoBehaviour
             codeBookOB.SetActive(true);
 
             var name = MouseInputManager.Instance.selectedItem.name;
-            var info = ItemManager.Instance.getInfo(name);
 
-            title.text = info.name;
+            title.text = MouseInputManager.Instance.selectedItem.fullTitle();
 
         }
         else

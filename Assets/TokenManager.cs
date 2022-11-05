@@ -3,24 +3,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemInfo:BaseInfo
+
+public class TokenInfo : BaseInfo
 {
-    public string start;
-
+    public Sprite image { get { return Resources.Load<Sprite>("token/" + name); } }
 }
-
-public class ItemManager : InfoManager<ItemManager, ItemInfo>
+public class TokenManager : InfoManager<TokenManager,TokenInfo>
 {
     // Start is called before the first frame update
 
+
     public void init()
     {
-        infoList = CsvUtil.LoadObjects<ItemInfo>("item");
+
+        infoList = CsvUtil.LoadObjects<TokenInfo>("token");
         foreach (var info in infoList)
         {
             infoDict[info.name] = info;
         }
     }
+
 
     // Update is called once per frame
     void Update()
