@@ -2,10 +2,13 @@ using Pool;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CodeBookMenu : MonoBehaviour
 {
     public GameObject codeBookOB;
+
+    public Text title;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +22,12 @@ public class CodeBookMenu : MonoBehaviour
         {
 
             codeBookOB.SetActive(true);
+
+            var name = MouseInputManager.Instance.selectedItem.name;
+            var info = ItemManager.Instance.getInfo(name);
+
+            title.text = info.name;
+
         }
         else
         {
