@@ -6,9 +6,11 @@ public class Token
 {
     public string name;
     public TokenInfo info;
-   public Token(string _n)
+    public Vector2Int index;
+   public Token(string _n, Vector2Int _index)
     {
         name = _n;
         info = TokenManager.Instance.getInfo(name);
+        index = _index;
     }
 }

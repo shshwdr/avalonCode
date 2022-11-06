@@ -11,7 +11,8 @@ public class CodeBookMenu : MonoBehaviour
 
     public Text title;
 
-    public TokenGridCellEmpty[] emptyGridCells;
+    public Dictionary<Vector2Int, TokenGridCellEmpty> emptyGridCellDict = new Dictionary<Vector2Int, TokenGridCellEmpty>();
+    TokenGridCellEmpty[] emptyGridCells;
 
     List<GameObject> tetrisCells = new List<GameObject>();
     // Start is called before the first frame update
@@ -20,6 +21,16 @@ public class CodeBookMenu : MonoBehaviour
         StartCoroutine(test());
         EventPool.OptIn("selectInteractiveItem", selectInteractiveItem);
         emptyGridCells = GetComponentsInChildren<TokenGridCellEmpty>(true);
+
+        int k  = 0;
+        for(int i = 0; i < 3; i++)
+        {
+            for (int j = 0; j < 3; j++)
+            {
+                emptyGridCellDict[new Vector2Int(i, j)] = emptyGridCells[k];
+                k++;
+            }
+        }
     }
 
     IEnumerator test()
@@ -50,11 +61,11 @@ public class CodeBookMenu : MonoBehaviour
             {
                 var go = Instantiate(tokenTetrisCellPrefab, transform);
                 go.GetComponent<TokenTetrisCell>().init(token);
-                var position = emptyGridCells[0].GetComponent<RectTransform>().position;
+                var position = emptyGridCellDict[token.index].GetComponent<RectTransform>().position;
                 go.GetComponent<RectTransform>().position = position;
                 tetrisCells.Add(go);
             }
-        }
+        } 
         else
         {
 

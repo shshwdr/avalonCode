@@ -13,7 +13,7 @@ public class InteractiveItem : MonoBehaviour
     {
         info = ItemManager.Instance.getInfo(name);
         //add start token
-        addToken(info.start);
+        addToken(info.start, new Vector2Int(0,0));
     }
 
     // Update is called once per frame
@@ -22,10 +22,10 @@ public class InteractiveItem : MonoBehaviour
         
     }
 
-    public void addToken(string tokenName)
+    public void addToken(string tokenName, Vector2Int index)
     {
         //todo should have token position
-        Token token = new Token(tokenName);
+        Token token = new Token(tokenName, index);
         tokens.Add(token);
 
         updateTitleChange();
