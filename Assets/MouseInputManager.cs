@@ -7,9 +7,9 @@ public class MouseInputManager : Singleton<MouseInputManager>
 {
     public GameObject currentDragItem;
     public bool isInBuildMode;
-    public InteractiveItem selectedItem;
+    public TokenableItem selectedItem;
     public float rotateSmooth = 10.0f;
-    void selectItem(InteractiveItem go)
+    void selectItem(TokenableItem go)
     {
 
         selectedItem = go;
@@ -107,7 +107,7 @@ public class MouseInputManager : Singleton<MouseInputManager>
             foreach (var hit in Physics.RaycastAll(ray))
             {
                 Debug.Log("hit " + hit.transform.gameObject);
-                var hitItem = hit.transform.GetComponent<InteractiveItem>();
+                var hitItem = hit.transform.GetComponent<TokenableItem>();
                 if (hitItem)
                 {
                     selectItem(hitItem);

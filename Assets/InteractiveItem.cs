@@ -1,75 +1,119 @@
-using Pool;
+using DG.Tweening;
+using PixelCrushers.DialogueSystem;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InteractiveItem : MonoBehaviour
 {
-    public string name;
-    ItemInfo info;
-    public List<Token> tokens = new List<Token>();
-    string titleChange = "";
+    public GameObject pickUI;
+    public Text interactiveText;
+    public bool isInteractiveDisabled;
+    PlayerPickup playerPickup;
+    protected SpriteRenderer renderer;
+    //public GameObject pickingUpBar;
     // Start is called before the first frame update
-    void Start()
+    public virtual void Start()
     {
-        info = ItemManager.Instance.getInfo(name);
-        //add start token
-        if (info.start!=null && info.start.Length>0)
-        {
-            addToken(info.start, new Vector2Int(0, 0));
-
-        }
+        hidePickupUI();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
-
-    public void addToken(string tokenName, Vector2Int index)
+    private void OnTriggerEnter(Collider collision)
     {
-        //todo should have token position
-        Token token = new Token(tokenName, index,this);
-        tokens.Add(token);
-
-        updateTitleChange();
-    }
-
-    public void addToken(Token token)
-    {
-        tokens.Add(token);
-
-        updateTitleChange();
-    }
-
-    public void removeToken(Token token)
-    {
-        tokens.Remove(token);
-        updateTitleChange();
-    }
-
-    public void updateTitleChange()
-    {
-       var newTitleChange = "";
-        //sort by size of token
-        foreach (var token in tokens)
+        if (!canShowInteractUI())
         {
-            var combination = ItemTokenCombination.Instance.getInfo(name, token.name);
-            if (combination.Count>0)
-            {
-                newTitleChange += combination[0].titleChange+" ";
-            }
+            return;
         }
-        if (newTitleChange != titleChange)
+        if (isInteractiveDisabled)
         {
-            titleChange = newTitleChange;
-            EventPool.Trigger("titleChange",fullTitle());
+            return;
+        }
+        var player = collision.GetComponent<PlayerPickup>();
+
+        if (player)
+        {
+            playerPickup = player;
+            player.addCanPickup(this);
+        }
+    }
+    private void OnTriggerExit(Collider collision)
+    {
+        var player = collision.GetComponent<PlayerPickup>();
+        if (player)
+        {
+            player.removeCanPickup(this);
         }
     }
 
-    public string fullTitle()
+    protected virtual bool canInteract()
     {
-        return titleChange + info.title;
+        return true;
+    }
+
+    protected virtual bool canShowInteractUI()
+    {
+        return true;
+    }
+
+    public virtual void interact(PlayerPickup player)
+    {
+
+        if (!canInteract())
+        {
+            player.failedPickup();
+            DialogueManager.ShowAlert("Need extra equipment!");
+            return;
+        }
+        if (isInteractiveDisabled)
+        {
+            return;
+        }
+        pickUI.SetActive(false);
+
+
+    }
+    public virtual void prepareUI() { }
+    public void showPickupUI()
+    {
+        if (!canShowInteractUI())
+        {
+            return;
+        }
+        if (isInteractiveDisabled)
+        {
+            return;
+        }
+        prepareUI();
+        //show pick up
+        pickUI.SetActive(true);
+    }
+    public void hidePickupUI()
+    {
+
+        //pickingUpBar.SetActive(false);
+        //show pick up
+        pickUI.SetActive(false);
+    }
+
+    public void disableInteractive()
+    {
+        isInteractiveDisabled = true;
+        if (playerPickup)
+        {
+            playerPickup.removeCanPickup(this);
+        }
+        hidePickupUI();
+    }
+
+    public void enableInteractive()
+    {
+        isInteractiveDisabled = false;
     }
 }

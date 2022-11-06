@@ -9,9 +9,9 @@ public class Token
     public Vector2Int index;
     public bool isInventory = false;
     public int indexInt;
-    InteractiveItem item;
+    TokenableItem item;
 
-    public Token(string _n, Vector2Int _index, InteractiveItem _item)
+    public Token(string _n, Vector2Int _index, TokenableItem _item)
     {
         name = _n;
         info = TokenManager.Instance.getInfo(name);
@@ -19,7 +19,7 @@ public class Token
         item = _item;
     }
 
-    public void updateGridPosition(Vector2Int _index, InteractiveItem _item)
+    public void updateGridPosition(Vector2Int _index, TokenableItem _item)
     {
         index = _index;
 

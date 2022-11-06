@@ -119,7 +119,21 @@ public class Utils : MonoBehaviour
         }
         return res;
     }
-    
+    static public int findClosestIndex<T>(Transform targetTransform, List<T> candicateTransforms) where T : MonoBehaviour
+    {
+        int res = 0;
+        float closestDistance = float.MaxValue;
+        for (int i = 0; i < candicateTransforms.Count; i++)
+        {
+            float distance = (candicateTransforms[i].transform.position - targetTransform.position).magnitude;
+            if (distance < closestDistance)
+            {
+                closestDistance = distance;
+                res = i;
+            }
+        }
+        return res;
+    }
     static public int findClosestIndex<T>(Vector3 position, T[] candicateTransforms) where T : MonoBehaviour
     {
         int res = 0;
