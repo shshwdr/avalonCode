@@ -22,7 +22,7 @@ public class TokenInventoryManager : Singleton<TokenInventoryManager>
         }
 
         tokens[index] = token;
-        EventPool.Trigger("updateTokenInventory");
+        //EventPool.Trigger("updateTokenInventory");
     }
 
     public void removeToken(int index)

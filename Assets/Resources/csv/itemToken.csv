@@ -1,7 +1,8 @@
-﻿item,token,titleChange
-bread,cold,Cold
-bread,fire,Warm
-bread,soft,Soft
-bunny,soft,Soft
-bonfire,fire,Ignited
-bonfire,,Extinguished
+﻿item,token,titleChange,isOpposite
+bread,cold,Cold,
+bread,fire,Warm,
+bread,soft,Soft,
+bunny,soft,Soft,
+bonfire,fire,Ignited,
+bonfire,fire,Extinguished,1
+cook,fire,Passionate,

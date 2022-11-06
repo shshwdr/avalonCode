@@ -7,6 +7,8 @@ public class ItemTokenInfo
     public string item;
     public string token;
     public string titleChange;
+    public int isOpposite;
+    public bool IsOpposite { get { return isOpposite == 1; } }
 
 }
 public class ItemTokenCombination : Singleton<ItemTokenCombination>

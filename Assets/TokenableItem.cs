@@ -1,6 +1,7 @@
 using Pool;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class TokenableItem : MonoBehaviour
@@ -55,16 +56,54 @@ public class TokenableItem : MonoBehaviour
         //sort by size of token
         foreach (var token in tokens)
         {
-            var combination = ItemTokenCombination.Instance.getInfo(name, token.name);
-            if (combination.Count>0)
+            var combinations = ItemTokenCombination.Instance.getInfo(name, token.name);
+            foreach(var com in combinations)
             {
-                newTitleChange += combination[0].titleChange+" ";
+                if(!com.IsOpposite)
+                {
+
+                    newTitleChange += com.titleChange + " ";
+                    break;
+                }
             }
+        }
+
+        List<string> properties = tokens.Select(o => o.name).ToList();
+        foreach (var com in ItemTokenCombination.Instance.getInfo(name))
+        {
+            if (com.IsOpposite && !properties.Contains(com.token))
+            {
+                newTitleChange += com.titleChange + " ";
+                continue;
+            }
+        }
+
+        if(tokens.Count == 0)
+        {
+
         }
         if (newTitleChange != titleChange)
         {
+            updateOthersAfterUpdateTitle(titleChange, newTitleChange);
             titleChange = newTitleChange;
+
+
+
+
             EventPool.Trigger("titleChange",fullTitle());
+        }
+    }
+
+    void updateOthersAfterUpdateTitle(string old,string newT)
+    {
+        foreach(var b in GetComponents<ChangeTitleBehavior>())
+        {
+            b.changeTitleFrom(old);
+        }
+
+        foreach (var b in GetComponents<ChangeTitleBehavior>())
+        {
+            b.changeTitleTo(newT);
         }
     }
 
