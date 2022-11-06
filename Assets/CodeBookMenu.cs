@@ -27,7 +27,9 @@ public class CodeBookMenu : MonoBehaviour
         {
             for (int j = 0; j < 3; j++)
             {
-                emptyGridCellDict[new Vector2Int(i, j)] = emptyGridCells[k];
+                var index = new Vector2Int(i, j);
+                emptyGridCellDict[index] = emptyGridCells[k];
+                emptyGridCells[k].index = index;
                 k++;
             }
         }
@@ -60,7 +62,7 @@ public class CodeBookMenu : MonoBehaviour
             foreach(var token in selectItem.tokens)
             {
                 var go = Instantiate(tokenTetrisCellPrefab, transform);
-                go.GetComponent<TokenTetrisCell>().init(token);
+                go.GetComponent<TokenTetrisCell>().init(token,this);
                 var position = emptyGridCellDict[token.index].GetComponent<RectTransform>().position;
                 go.GetComponent<RectTransform>().position = position;
                 tetrisCells.Add(go);
@@ -72,6 +74,22 @@ public class CodeBookMenu : MonoBehaviour
             codeBookOB.SetActive(false);
         }
 
+    }
+
+
+    public GameObject findClosestSlot(Vector3 pos, TokenTetrisCell cell)
+    {
+        float closestDistance = 10000;
+        GameObject res = null;
+        foreach(var s in emptyGridCells)
+        {
+            var dis = Vector2.Distance(pos, (Vector2)s.transform.position);
+            if (dis <= closestDistance){
+                res = s.gameObject;
+                closestDistance = dis;
+            }
+        }
+        return res;
     }
 
     // Update is called once per frame

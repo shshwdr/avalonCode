@@ -1,25 +1,49 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class TokenTetrisCell : MonoBehaviour
+public class TokenTetrisCell : EventTrigger
 {
     public GameObject tokenCellPrefab;
-    public void init(Token token)
+    bool dragging;
+    CodeBookMenu menu;
+    GameObject closestSlot;
+    Token token;
+    public void init(Token _token, CodeBookMenu _menu)
     {
+        token = _token;
         var go = Instantiate(tokenCellPrefab, transform.position, Quaternion.identity, transform);
         go.GetComponent<TokenCell>().image .sprite = token.info.image;
-        
+        menu = _menu;
     }
+
+
     // Start is called before the first frame update
     void Start()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Update()
     {
-        
+        if (dragging)
+        {
+            var pos = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+            closestSlot =  menu.findClosestSlot(pos, this);
+            transform.position = closestSlot.transform.position;
+        }
+    }
+
+    public override void OnPointerDown(PointerEventData eventData)
+    {
+        dragging = true;
+    }
+
+    public override void OnPointerUp(PointerEventData eventData)
+    {
+        dragging = false;
+        //update token position info
+        token.updatePosition(closestSlot.GetComponent<TokenGridCellEmpty>().index);
     }
 }

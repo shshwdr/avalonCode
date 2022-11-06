@@ -13,4 +13,9 @@ public class Token
         info = TokenManager.Instance.getInfo(name);
         index = _index;
     }
+
+    public void updatePosition(Vector2Int _index)
+    {
+        index = _index;
+    }
 }
