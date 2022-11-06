@@ -14,6 +14,9 @@ public class CodeBookMenu : MonoBehaviour
     public Dictionary<Vector2Int, TokenGridCellEmpty> emptyGridCellDict = new Dictionary<Vector2Int, TokenGridCellEmpty>();
     TokenGridCellEmpty[] emptyGridCells;
 
+
+    TokenInventoryCellEmpty[] emptyInventoryCells;
+
     List<GameObject> tetrisCells = new List<GameObject>();
     // Start is called before the first frame update
     void Start()
@@ -22,8 +25,8 @@ public class CodeBookMenu : MonoBehaviour
         EventPool.OptIn("selectInteractiveItem", selectInteractiveItem);
         emptyGridCells = GetComponentsInChildren<TokenGridCellEmpty>(true);
 
-        int k  = 0;
-        for(int i = 0; i < 3; i++)
+        int k = 0;
+        for (int i = 0; i < 3; i++)
         {
             for (int j = 0; j < 3; j++)
             {
@@ -33,8 +36,25 @@ public class CodeBookMenu : MonoBehaviour
                 k++;
             }
         }
-    }
 
+        emptyInventoryCells = GetComponentsInChildren<TokenInventoryCellEmpty>(true);
+        for (int i = 0; i < emptyInventoryCells.Length; i++)
+        {
+            emptyInventoryCells[i].index = i;
+        }
+
+
+        EventPool.OptIn<string>("titleChange",titleChange);
+        EventPool.OptIn("updateTokenInventory",inventoryChange);
+    }
+    void titleChange(string t)
+    {
+        title.text = t;
+    }
+    void inventoryChange()
+    {
+
+    }
     IEnumerator test()
     {
         yield return new WaitForSeconds(0.1f);
@@ -89,6 +109,17 @@ public class CodeBookMenu : MonoBehaviour
                 closestDistance = dis;
             }
         }
+
+        foreach(var s in emptyInventoryCells)
+        {
+            var dis = Vector2.Distance(pos, (Vector2)s.transform.position);
+            if (dis <= closestDistance)
+            {
+                res = s.gameObject;
+                closestDistance = dis;
+            }
+        }
+
         return res;
     }
 

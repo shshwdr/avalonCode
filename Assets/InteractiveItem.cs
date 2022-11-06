@@ -1,3 +1,4 @@
+using Pool;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -25,23 +26,34 @@ public class InteractiveItem : MonoBehaviour
     public void addToken(string tokenName, Vector2Int index)
     {
         //todo should have token position
-        Token token = new Token(tokenName, index);
+        Token token = new Token(tokenName, index,this);
         tokens.Add(token);
 
         updateTitleChange();
     }
 
+    public void removeToken(Token token)
+    {
+        tokens.Remove(token);
+        updateTitleChange();
+    }
+
     public void updateTitleChange()
     {
-        titleChange = "";
+       var newTitleChange = "";
         //sort by size of token
         foreach (var token in tokens)
         {
             var combination = ItemTokenCombination.Instance.getInfo(name, token.name);
             if (combination.Count>0)
             {
-                titleChange += combination[0].titleChange+" ";
+                newTitleChange += combination[0].titleChange+" ";
             }
+        }
+        if (newTitleChange != titleChange)
+        {
+            titleChange = newTitleChange;
+            EventPool.Trigger("titleChange",fullTitle());
         }
     }
 
