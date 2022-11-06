@@ -47,7 +47,7 @@ public class TokenTetrisCell : EventTrigger
         if (closestSlot.GetComponent<TokenGridCellEmpty>())
         {
 
-            token.updateGridPosition(closestSlot.GetComponent<TokenGridCellEmpty>().index);
+            token.updateGridPosition(closestSlot.GetComponent<TokenGridCellEmpty>().index, MouseInputManager.Instance.selectedItem);
         }else if (closestSlot.GetComponent<TokenInventoryCellEmpty>())
         {
             token.updateInventoryPosition(closestSlot.GetComponent<TokenInventoryCellEmpty>().index);

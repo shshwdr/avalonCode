@@ -55,6 +55,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: interactableItem
       objectReference: {fileID: 0}
+    - target: {fileID: 4887989500902701359, guid: ce4f5fe5bdbd4bb4ebe989dbf2845a62, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce4f5fe5bdbd4bb4ebe989dbf2845a62, type: 3}
 --- !u!1 &7604506114499368825 stripped
@@ -74,3 +78,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 700463a24cc3d4a408ec5c1ef584512b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: 

@@ -3,4 +3,5 @@ bread,cold,Cold
 bread,fire,Warm
 bread,soft,Soft
 bunny,soft,Soft
-wood,fire,Lit
+bonfire,fire,Ignited
+bonfire,,Extinguished

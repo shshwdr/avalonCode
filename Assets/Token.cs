@@ -19,12 +19,24 @@ public class Token
         item = _item;
     }
 
-    public void updateGridPosition(Vector2Int _index)
+    public void updateGridPosition(Vector2Int _index, InteractiveItem _item)
     {
-        isInventory = false;
         index = _index;
 
         //update item
+        if (isInventory)
+        {
+
+            isInventory = false;
+            if (item)
+            {
+                Debug.LogError("it should not have an item");
+                return;
+            }
+            TokenInventoryManager.Instance.removeToken(indexInt);
+            item = _item;
+            item.addToken(this);
+        }
     }
 
     public void updateInventoryPosition(int _index)
@@ -41,6 +53,7 @@ public class Token
                 return;
             }
             item.removeToken(this);
+            TokenInventoryManager.Instance.addToken(this);
             item = null;
         }
     }

@@ -23,6 +23,8 @@ public class CodeBookMenu : MonoBehaviour
     {
         StartCoroutine(test());
         EventPool.OptIn("selectInteractiveItem", selectInteractiveItem);
+        EventPool.OptIn<string>("titleChange", titleChange);
+        EventPool.OptIn("updateTokenInventory", inventoryChange);
         emptyGridCells = GetComponentsInChildren<TokenGridCellEmpty>(true);
 
         int k = 0;
@@ -44,8 +46,6 @@ public class CodeBookMenu : MonoBehaviour
         }
 
 
-        EventPool.OptIn<string>("titleChange",titleChange);
-        EventPool.OptIn("updateTokenInventory",inventoryChange);
     }
     void titleChange(string t)
     {
@@ -53,12 +53,36 @@ public class CodeBookMenu : MonoBehaviour
     }
     void inventoryChange()
     {
-
+        for(int i = 0; i < TokenInventoryManager.Instance.tokens.Length; i++)
+        {
+            if (TokenInventoryManager.Instance.tokens[i] != null)
+            {
+                createToken(TokenInventoryManager.Instance.tokens[i]);
+            }
+        }
     }
     IEnumerator test()
     {
         yield return new WaitForSeconds(0.1f);
         codeBookOB.SetActive(false);
+    }
+
+    GameObject createToken(Token token)
+    {
+        var go = Instantiate(tokenTetrisCellPrefab, transform);
+        go.GetComponent<TokenTetrisCell>().init(token, this);
+        var position = Vector3.zero;
+        if (token.isInventory)
+        {
+            position = emptyInventoryCells[token.indexInt].transform.position;
+        }
+        else
+        {
+            position = emptyGridCellDict[token.index].transform.position;
+        }
+        go.GetComponent<RectTransform>().position = position;
+        tetrisCells.Add(go);
+        return go;
     }
 
     void selectInteractiveItem()
@@ -68,6 +92,7 @@ public class CodeBookMenu : MonoBehaviour
             Destroy(c);
         }
         tetrisCells.Clear();
+
 
         if (MouseInputManager.Instance.selectedItem)
         {
@@ -81,12 +106,10 @@ public class CodeBookMenu : MonoBehaviour
             //show current tokens
             foreach(var token in selectItem.tokens)
             {
-                var go = Instantiate(tokenTetrisCellPrefab, transform);
-                go.GetComponent<TokenTetrisCell>().init(token,this);
-                var position = emptyGridCellDict[token.index].GetComponent<RectTransform>().position;
-                go.GetComponent<RectTransform>().position = position;
-                tetrisCells.Add(go);
+                var go = createToken(token);
+                //tetrisCells.Add(go);
             }
+            inventoryChange();
         } 
         else
         {
