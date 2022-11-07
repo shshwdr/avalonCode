@@ -1,4 +1,5 @@
 //using PixelCrushers.DialogueSystem;
+//using Sinbad;
 //using System.Collections;
 //using System.Collections.Generic;
 //using UnityEngine;
@@ -40,21 +41,30 @@
 //    public List<QuestInfo> allQuest;
 //}
 //public enum QuestState { unassigned, active, returnToNPC, success, grantable }
-//public class QuestManager : Singleton<QuestManager>
+//public class QuestManager : InfoManager<QuestManager,QuestInfo>
 //{
 //    public Dictionary<string, GameObject> itemsDict = new Dictionary<string, GameObject>();
-//    public QuestController questController;
-//    public Dictionary<string, QuestInfo> questDict;
 //    public Dictionary<string, int> questAmountItemDict = new Dictionary<string, int>();
 
 //    public AudioClip addQuestSFX;
 //    public AudioClip finishQuestSFX;
+//    public void init()
+//    {
+
+//        infoList = CsvUtil.LoadObjects<QuestInfo>("quest");
+//        foreach (var info in infoList)
+//        {
+//            infoDict[info.name] = info;
+//        }
+//    }
+
+
 //    public void updateQuestFromNoWhere()
 //    {
 
 //        updateQuestState();
 //        updateGrantQuest();
-//        questController.UpdateQuest();
+//        //questController.UpdateQuest();
 //    }
 
 //    public void addQuestItem(string name, int amount = 1)
@@ -242,20 +252,7 @@
 //        }
 //        return questAmountItemDict[name];
 //    }
-//    // Start is called before the first frame update
-//    void Start()
-//    {
 
-//        string text = Resources.Load<TextAsset>("json/Quest").text;
-//        var allNPCs = JsonMapper.ToObject<AllQuestInfo>(text);
-//        questDict = new Dictionary<string, QuestInfo>();
-//        foreach (QuestInfo info in allNPCs.allQuest)
-//        {
-//            questDict[info.name] = info;
-//        }
-//        //updateQuestFromNoWhere();
-//        questController.UpdateQuest();
-//    }
 
 //    public void changeQuestState(string[] args)
 //    {
