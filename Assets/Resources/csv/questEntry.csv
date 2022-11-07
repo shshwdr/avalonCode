@@ -1,0 +1,2 @@
+﻿name,desc,type,typeCategory,value
+notColdBread,remove the cold token from the bread,setTitleExclude,bread,ice

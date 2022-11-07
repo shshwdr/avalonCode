@@ -9,7 +9,7 @@ public class MouseInputManager : Singleton<MouseInputManager>
     public bool isInBuildMode;
     public TokenableItem selectedItem;
     public float rotateSmooth = 10.0f;
-    void selectItem(TokenableItem go)
+    public void selectItem(TokenableItem go)
     {
 
         selectedItem = go;
@@ -78,6 +78,10 @@ public class MouseInputManager : Singleton<MouseInputManager>
 
     private void Update()
     {
+        if (DialogueUtils.Instance.isInDialogue)
+        {
+            return;
+        }
         //if (currentDragItem)
         //{
         //    float tilt = Input.GetAxisRaw("Rotate");
