@@ -327,6 +327,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4586104956589717208, guid: 45ac2be2b649cf04ca29c38451e98b3f, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7604506114499368824, guid: 45ac2be2b649cf04ca29c38451e98b3f, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -373,7 +377,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7604506114499368825, guid: 45ac2be2b649cf04ca29c38451e98b3f, type: 3}
       propertyPath: m_Name
-      value: cook
+      value: NPC
       objectReference: {fileID: 0}
     - target: {fileID: 7604506114519827361, guid: 45ac2be2b649cf04ca29c38451e98b3f, type: 3}
       propertyPath: m_Sprite
@@ -385,6 +389,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 45ac2be2b649cf04ca29c38451e98b3f, type: 3}
+--- !u!1 &5972928083800366923 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6562198936115197187, guid: 45ac2be2b649cf04ca29c38451e98b3f, type: 3}
+  m_PrefabInstance: {fileID: 717628528391596616}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6747145434292681679 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6077372807012831623, guid: 45ac2be2b649cf04ca29c38451e98b3f, type: 3}
+  m_PrefabInstance: {fileID: 717628528391596616}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6952754482777357616 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7604506114499368824, guid: 45ac2be2b649cf04ca29c38451e98b3f, type: 3}
@@ -480,3 +494,20 @@ MonoBehaviour:
   useBarkTitlePicker: 1
   useQuestNamePicker: 1
   selectedDatabase: {fileID: 11400000, guid: c4c488602086ca84698b9e2e28cf7a89, type: 2}
+--- !u!114 &4898236618105062150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6952754482777357617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a385231bace40d84bb86b20c1cfc87cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  willGrantQuestMarker: {fileID: 5972928083800366923}
+  canFinishQuestMarker: {fileID: 6747145434292681679}
+  renderObjects: {fileID: 0}
+  isActived: 0
+  isVisible: 1

@@ -11,6 +11,7 @@ public class GameManager : Singleton<GameManager>
         TokenManager.Instance.init();
         ItemManager.Instance.init();
         ItemTokenCombination.Instance.init();
+        QuestManager.Instance.init();
     }
 
         // Update is called once per frame
