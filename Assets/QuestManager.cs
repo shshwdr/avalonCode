@@ -34,6 +34,11 @@ public class QuestInfo
     //public GeneralTypeAmount[] grantBehavior;
     //public GeneralTypeAmount[] activeBehavior;
     public List<string> grantRequest;
+
+    public string type;
+    public string typeCategory;
+    public string value;
+    //public string[] entriesString;
     //public QuestEntry[] entries;
 }
 public enum QuestState { unassigned, grantable, active, returnToNPC, success }
@@ -53,6 +58,7 @@ public class QuestManager : InfoManager<QuestManager, QuestInfo>
         }
         updateQuestFromNoWhere();
     }
+
 
 
     public void updateQuestFromNoWhere()
@@ -102,73 +108,80 @@ public class QuestManager : InfoManager<QuestManager, QuestInfo>
         }
         return res;
     }
-    void updateQuestState()
+    public void updateQuestState()
     {
         foreach (var info in activeQuests())
         {
-            bool isFinished = true;
+            bool isFinished = false;
             //foreach (var entry in info.entries)
-            //{
-            //    switch (entry.type)
-            //    {
-            //        //case "questItemAmount":
-            //        //    if (getQuestItemAmount(entry.subtype) >= entry.amount)
-            //        //    {
-            //        //        entry.state = QuestState.success;
-            //        //    }
-            //        //    break;
-            //        //case "inventoryAmount":
-            //        //    if (Inventory.Instance.hasItem(entry.subtype))
-            //        //    {
-            //        //        entry.state = QuestState.success;
-            //        //    }
-            //        //    break;
-            //        //case "variableAmount":
-            //        //    if (DialogueLua.GetVariable(entry.subtype).asInt >= entry.amount)
-            //        //    {
+            {
+                    switch (info.type)
+                    {
+                    case "setTitleExclude":
+                        bool res = MyLuaFunctions.Instance.ItemTitleContains(info.typeCategory, info.value);
+                        if (!res)
+                        {
+                            isFinished = true;
+                        }
+                        break;
+                //        //case "questItemAmount":
+                //        //    if (getQuestItemAmount(entry.subtype) >= entry.amount)
+                //        //    {
+                //        //        entry.state = QuestState.success;
+                //        //    }
+                //        //    break;
+                //        //case "inventoryAmount":
+                //        //    if (Inventory.Instance.hasItem(entry.subtype))
+                //        //    {
+                //        //        entry.state = QuestState.success;
+                //        //    }
+                //        //    break;
+                //        //case "variableAmount":
+                //        //    if (DialogueLua.GetVariable(entry.subtype).asInt >= entry.amount)
+                //        //    {
 
-            //        //        entry.state = QuestState.success;
-            //        //    }
-            //        //    break;
-            //        //case "metNPC":
-            //        //    if (DialogueLua.GetActorField(entry.subtype, "hasTalked").asBool)
-            //        //    {
-            //        //        entry.state = QuestState.success;
-            //        //    }
-            //        //    break;
-            //        //case "fullFriendshipAmount":
-            //        //    int fullFriendshipAmount = 0;
-            //        //    foreach (var npc in NPCManager.Instance.npcDict.Keys)
-            //        //    {
-            //        //        if (DialogueLua.GetActorField(npc, "friendship").asInt >= 100)
-            //        //        {
-            //        //            fullFriendshipAmount += 1;
-            //        //        }
-            //        //    }
-            //        //    if (fullFriendshipAmount >= entry.amount)
-            //        //    {
-            //        //        entry.state = QuestState.success;
+                //        //        entry.state = QuestState.success;
+                //        //    }
+                //        //    break;
+                //        //case "metNPC":
+                //        //    if (DialogueLua.GetActorField(entry.subtype, "hasTalked").asBool)
+                //        //    {
+                //        //        entry.state = QuestState.success;
+                //        //    }
+                //        //    break;
+                //        //case "fullFriendshipAmount":
+                //        //    int fullFriendshipAmount = 0;
+                //        //    foreach (var npc in NPCManager.Instance.npcDict.Keys)
+                //        //    {
+                //        //        if (DialogueLua.GetActorField(npc, "friendship").asInt >= 100)
+                //        //        {
+                //        //            fullFriendshipAmount += 1;
+                //        //        }
+                //        //    }
+                //        //    if (fullFriendshipAmount >= entry.amount)
+                //        //    {
+                //        //        entry.state = QuestState.success;
 
-            //        //    }
-            //        //    break;
-            //    }
-            //    if (entry.state != QuestState.success)
-            //    {
-            //        isFinished = false;
-            //    }
-            //}
-            //if (isFinished)
-            //{
-            //    //info.state = QuestState.returnToNPC;
+                //        //    }
+                //        //    break;
+                    }
+                //    if (entry.state != QuestState.success)
+                //    {
+                //        isFinished = false;
+                //    }
+            }
+            if (isFinished)
+            {
+                info.state = QuestState.returnToNPC;
 
-            //    //var returnNPC = infoDict[info.name].returnNPC;
-            //    //if (returnNPC != null)
-            //    //{
+                var returnNPC = infoDict[info.name].returnNPC;
+                if (returnNPC != null)
+                {
 
-            //    //    NPCManager.Instance.npcScriptDict[returnNPC].canFinishQuest();
-            //    //}
-            //    //DialogueLua.SetQuestField(info.name, "State", "returnToNPC");
-            //}
+                    NPCManager.Instance.npcScriptDict[returnNPC].canFinishQuest();
+                }
+                DialogueLua.SetQuestField(info.name, "State", "returnToNPC");
+            }
         }
     }
 
@@ -253,6 +266,11 @@ public class QuestManager : InfoManager<QuestManager, QuestInfo>
         return questAmountItemDict[name];
     }
 
+    public QuestState getQuestState(string name)
+    {
+        var info = getInfo(name);
+        return info.state;
+    }
 
     public void changeQuestState(string[] args)
     {

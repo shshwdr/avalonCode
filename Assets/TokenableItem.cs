@@ -91,6 +91,8 @@ public class TokenableItem : MonoBehaviour
 
 
             EventPool.Trigger("titleChange",fullTitle());
+
+            QuestManager.Instance.updateQuestFromNoWhere();
         }
     }
 
