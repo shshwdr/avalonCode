@@ -1,6 +1,6 @@
-﻿name,title,returnNPC,grantTItleRequest,grantQuestRequest,type,typeCategory,value
+﻿name,title,returnNPC,grantTitleRequest,grantQuestRequest,type,typeCategory,value
 notColdBread,Make the bread not cold,cook,,,setTitleExclude,bread,Cold
-litFire,,cook,,notColdBread,setTitleInclude,bonfire,Ignited
-fullLumberjack,,lumberjack,Passionate,,setTitleInclude,lumberjack,Full
-fixAxe,,lumberjack,,fillLumberjack,,,
-yummyBread,,cook,,litFire,setTitleInclude,bread,yummy
+litFire,Lit fire on  bonfire,cook,,notColdBread,setTitleInclude,bonfire,Ignited
+fullLumberjack,Find warm food for lumberjack,lumberjack,not_Unkind,,setTitleInclude,bread,Warm
+fixAxe,Fix axe,lumberjack,,fullLumberjack,,,
+softBread,Make better bread,cook,,litFire,setTitleInclude,bread,Soft

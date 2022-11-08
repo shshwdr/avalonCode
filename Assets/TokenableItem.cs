@@ -55,10 +55,15 @@ public class TokenableItem : MonoBehaviour
     public void updateTitleChange()
     {
        var newTitleChange = "";
+        var itemName = name;
+        if (GetComponent<NPC>())
+        {
+            itemName = "NPC";
+        }
         //sort by size of token
         foreach (var token in tokens)
         {
-            var combinations = ItemTokenCombination.Instance.getInfo(name, token.name);
+            var combinations = ItemTokenCombination.Instance.getInfo(itemName, token.name);
             foreach(var com in combinations)
             {
                 if (com.generateToken != null && com.generateToken != "")
@@ -81,7 +86,7 @@ public class TokenableItem : MonoBehaviour
         }
 
         List<string> properties = tokens.Select(o => o.name).ToList();
-        foreach (var com in ItemTokenCombination.Instance.getInfo(name))
+        foreach (var com in ItemTokenCombination.Instance.getInfo(itemName))
         {
             if (com.IsOpposite && !properties.Contains(com.token))
             {
@@ -125,6 +130,12 @@ public class TokenableItem : MonoBehaviour
 
     public string fullTitle()
     {
+        if(info == null)
+        {
+            //might be better way..
+            return "";
+            //Debug.LogError("?");
+        }
         return titleChange + info.title;
     }
 }

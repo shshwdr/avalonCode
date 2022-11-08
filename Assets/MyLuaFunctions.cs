@@ -17,6 +17,7 @@ public class MyLuaFunctions : Singleton<MyLuaFunctions>
         Lua.RegisterFunction("FinishQuest", this, SymbolExtensions.GetMethodInfo(() => FinishQuest(string.Empty)));
         Lua.RegisterFunction("IsQuestToBeStart", this, SymbolExtensions.GetMethodInfo(() => IsQuestToBeStart(string.Empty)));
         Lua.RegisterFunction("IsQuestToBeFinish", this, SymbolExtensions.GetMethodInfo(() => IsQuestToBeFinish(string.Empty)));
+        Lua.RegisterFunction("IsQuestFinished", this, SymbolExtensions.GetMethodInfo(() => IsQuestFinished(string.Empty)));
     }
 
     void OnDisable()
@@ -48,6 +49,10 @@ public class MyLuaFunctions : Singleton<MyLuaFunctions>
     public bool IsQuestToBeFinish(string name)
     {
         return QuestManager.Instance.getQuestState(name) == QuestState.returnToNPC;
+    }
+    public bool IsQuestFinished(string name)
+    {
+        return QuestManager.Instance.getQuestState(name) == QuestState.success;
     }
 
     //public string itemTitle(string name, string token)
