@@ -20,6 +20,7 @@ public class TokenableItem : MonoBehaviour
             addToken(info.start, new Vector2Int(0, 0));
 
         }
+        updateTitleChange();
     }
 
     // Update is called once per frame

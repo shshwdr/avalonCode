@@ -1,6 +1,7 @@
 ﻿name,desc,title,start
 bread,a bread,Bread,ice
 bunny,,Bunny,soft
-bonfire,,Bonfire,fire
+bonfire,,Bonfire,
 cook,,Cook,
-lumberjack,,Lumberjack,
+lumberjack,,Lumberjack,stone
+boulder,,Boulder,stone
