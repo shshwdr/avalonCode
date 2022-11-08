@@ -8,6 +8,7 @@ public class ItemTokenInfo
     public string token;
     public string titleChange;
     public int isOpposite;
+    public string generateToken;
     public bool IsOpposite { get { return isOpposite == 1; } }
 
 }

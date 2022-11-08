@@ -2,6 +2,7 @@ using Pool;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using UnityEngine;
 
 public class TokenableItem : MonoBehaviour
@@ -60,7 +61,17 @@ public class TokenableItem : MonoBehaviour
             var combinations = ItemTokenCombination.Instance.getInfo(name, token.name);
             foreach(var com in combinations)
             {
-                if(!com.IsOpposite)
+                if (com.generateToken != null && com.generateToken != "")
+                {
+                    //generate token and consume token
+                    tokens.Remove(token);
+                    tokens.Add(new Token(com.generateToken, token.index, this));
+                    updateTitleChange();
+
+                    EventPool.Trigger("selectInteractiveItem");
+                    return;
+                }
+                if (!com.IsOpposite)
                 {
 
                     newTitleChange += com.titleChange + " ";
@@ -83,7 +94,9 @@ public class TokenableItem : MonoBehaviour
         {
 
         }
-        if (newTitleChange != titleChange)
+
+        //should sort titles too
+        if (Regex.Replace(newTitleChange, @"\s", "") != Regex.Replace(titleChange, @"\s", ""))
         {
             updateOthersAfterUpdateTitle(titleChange, newTitleChange);
             titleChange = newTitleChange;

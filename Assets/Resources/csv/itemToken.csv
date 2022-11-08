@@ -4,7 +4,7 @@ bread,fire,Warm,,
 bread,soft,Soft,,
 bunny,soft,Fluffy,,
 bonfire,fire,Ignited,,
-bonfire,stone,Ignited,,fire
+bonfire,stone,,,fire
 bonfire,fire,Extinguished,1,
 cook,fire,Passionate,,
 lumberjack,fire,Passionate,,
