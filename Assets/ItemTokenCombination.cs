@@ -6,10 +6,10 @@ public class ItemTokenInfo
 {
     public string item;
     public string token;
-    public string titleChange;
-    public int isOpposite;
+    public string itemChange;
+    //public int isOpposite;
     public string generateToken;
-    public bool IsOpposite { get { return isOpposite == 1; } }
+    //public bool IsOpposite { get { return isOpposite == 1; } }
 
 }
 public class ItemTokenCombination : Singleton<ItemTokenCombination>

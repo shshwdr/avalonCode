@@ -11,6 +11,7 @@ public class TokenableItem : MonoBehaviour
     public ItemInfo info;
     public List<Token> tokens = new List<Token>();
     string titleChange = "";
+    public SpriteRenderer renderer;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +22,8 @@ public class TokenableItem : MonoBehaviour
             addToken(info.start, new Vector2Int(0, 0));
 
         }
-        updateTitleChange();
+        renderer.sprite = Resources.Load<Sprite>("item/" + name);
+        //updateTitleChange();
     }
 
     // Update is called once per frame
@@ -36,20 +38,48 @@ public class TokenableItem : MonoBehaviour
         Token token = new Token(tokenName, index,this);
         tokens.Add(token);
 
-        updateTitleChange();
+        //updateTitleChange();
     }
 
     public void addToken(Token token)
     {
         tokens.Add(token);
 
-        updateTitleChange();
+       // updateTitleChange();
     }
 
     public void removeToken(Token token)
     {
         tokens.Remove(token);
-        updateTitleChange();
+        //updateTitleChange();
+    }
+
+    public bool canGeneration()
+    {
+        var itemName = name;
+        foreach (var token in tokens)
+        {
+            var combinations = ItemTokenCombination.Instance.getInfo(itemName, token.name);
+            foreach (var com in combinations)
+            {
+                if (com.generateToken != null && com.generateToken != "")
+                {
+                    //generate token and consume token
+                    tokens.Remove(token);
+                    tokens.Add(new Token(com.generateToken, token.index, this));
+                    updateTitleChange();
+
+                    EventPool.Trigger("selectInteractiveItem");
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public void generate()
+    {
+
     }
 
     public void updateTitleChange()
@@ -76,24 +106,24 @@ public class TokenableItem : MonoBehaviour
                     EventPool.Trigger("selectInteractiveItem");
                     return;
                 }
-                if (!com.IsOpposite)
-                {
+                //if (!com.IsOpposite)
+                //{
 
-                    newTitleChange += com.titleChange + " ";
-                    break;
-                }
+                //    newTitleChange += com.titleChange + " ";
+                //    break;
+                //}
             }
         }
 
-        List<string> properties = tokens.Select(o => o.name).ToList();
-        foreach (var com in ItemTokenCombination.Instance.getInfo(itemName))
-        {
-            if (com.IsOpposite && !properties.Contains(com.token))
-            {
-                newTitleChange += com.titleChange + " ";
-                continue;
-            }
-        }
+        //List<string> properties = tokens.Select(o => o.name).ToList();
+        //foreach (var com in ItemTokenCombination.Instance.getInfo(itemName))
+        //{
+        //    if (com.IsOpposite && !properties.Contains(com.token))
+        //    {
+        //        newTitleChange += com.titleChange + " ";
+        //        continue;
+        //    }
+        //}
 
         if(tokens.Count == 0)
         {

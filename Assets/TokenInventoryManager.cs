@@ -25,6 +25,18 @@ public class TokenInventoryManager : Singleton<TokenInventoryManager>
         //EventPool.Trigger("updateTokenInventory");
     }
 
+    public bool hasToken(string tokenName)
+    {
+        foreach(var t in tokens)
+        {
+            if(t.name == tokenName)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public void removeToken(int index)
     {
         if (tokens[index] == null)

@@ -132,35 +132,38 @@ public class QuestManager : InfoManager<QuestManager, QuestInfo>
             {
                     switch (info.type)
                 {
-                    case "setTitleExclude":
-                        res = MyLuaFunctions.Instance.ItemTitleContains(info.typeCategory, info.value);
-                        if (!res)
-                        {
-                            isFinished = true;
-                        }
+                    case "hasToken":
+                        TokenInventoryManager.Instance.hasToken(info.typeCategory);
                         break;
-                    case "setTitleInclude":
-                        res = MyLuaFunctions.Instance.ItemTitleContains(info.typeCategory, info.value);
-                        if (res)
-                        {
-                            isFinished = true;
-                        }
-                        break;
-                        //        //case "questItemAmount":
-                        //        //    if (getQuestItemAmount(entry.subtype) >= entry.amount)
-                        //        //    {
-                        //        //        entry.state = QuestState.success;
-                        //        //    }
-                        //        //    break;
-                        //        //case "inventoryAmount":
-                        //        //    if (Inventory.Instance.hasItem(entry.subtype))
-                        //        //    {
-                        //        //        entry.state = QuestState.success;
-                        //        //    }
-                        //        //    break;
-                        //        //case "variableAmount":
-                        //        //    if (DialogueLua.GetVariable(entry.subtype).asInt >= entry.amount)
-                        //        //    {
+                    //case "setTitleExclude":
+                    //    res = MyLuaFunctions.Instance.ItemTitleContains(info.typeCategory, info.value);
+                    //    if (!res)
+                    //    {
+                    //        isFinished = true;
+                    //    }
+                    //    break;
+                    //case "setTitleInclude":
+                    //    res = MyLuaFunctions.Instance.ItemTitleContains(info.typeCategory, info.value);
+                    //    if (res)
+                    //    {
+                    //        isFinished = true;
+                    //    }
+                    //    break;
+                    //        //case "questItemAmount":
+                    //        //    if (getQuestItemAmount(entry.subtype) >= entry.amount)
+                    //        //    {
+                    //        //        entry.state = QuestState.success;
+                    //        //    }
+                    //        //    break;
+                    //        //case "inventoryAmount":
+                    //        //    if (Inventory.Instance.hasItem(entry.subtype))
+                    //        //    {
+                    //        //        entry.state = QuestState.success;
+                    //        //    }
+                    //        //    break;
+                    //        //case "variableAmount":
+                    //        //    if (DialogueLua.GetVariable(entry.subtype).asInt >= entry.amount)
+                    //        //    {
 
                         //        //        entry.state = QuestState.success;
                         //        //    }

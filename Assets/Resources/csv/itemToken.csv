@@ -1,14 +1,3 @@
-﻿item,token,titleChange,isOpposite,generateToken
-bread,ice,Cold,,
-bread,fire,Warm,,
-bread,soft,Soft,,
-bunny,soft,Fluffy,,
-bonfire,fire,Ignited,,
-bonfire,stone,,,fire
-bonfire,fire,Extinguished,1,
-NPC,fire,Passionate,,
-NPC,satisfaction,Full,,
-NPC,stone,Unkind,,
-boulder,soft,Light,,
-boulder,stone,Heavy,,
-axe,sick,Broken,,
+﻿item,token,itemChange,generateToken
+dough,hot,bread,
+oven,flammable,,hot
