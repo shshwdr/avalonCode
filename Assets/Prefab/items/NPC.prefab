@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1157672830}
   m_Layer: 0
   m_Name: talkable
-  m_TagString: Untagged
+  m_TagString: talkable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -409,19 +409,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7604506114499368825, guid: 45ac2be2b649cf04ca29c38451e98b3f, type: 3}
   m_PrefabInstance: {fileID: 717628528391596616}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &1016968683
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6952754482777357617}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2, y: 2, z: 0.5}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1016968687
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -107,16 +107,26 @@ public class MouseInputManager : Singleton<MouseInputManager>
             //if (currentDragItem == null && isInBuildMode)
             //{
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
+            float distance = 10000;
+            TokenableItem item = null;
             foreach (var hit in Physics.RaycastAll(ray))
             {
-                Debug.Log("hit " + hit.transform.gameObject);
-                var hitItem = hit.transform.GetComponent<TokenableItem>();
+                Debug.Log("hit " + hit.collider);
+                var hitItem = hit.collider.GetComponent<TokenableItem>();
                 if (hitItem)
                 {
-                    selectItem(hitItem);
-                    return;
+                    if(item == null || hit.distance < distance)
+                    {
+                        distance = hit.distance;
+                        item = hitItem;
+                    }
                 }
+            }
+
+            if (item)
+            {
+                selectItem(item);
+                return;
             }
             selectItem(null);
         }
