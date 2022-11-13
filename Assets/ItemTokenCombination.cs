@@ -5,7 +5,7 @@ using UnityEngine;
 public class ItemTokenInfo
 {
     public string item;
-    public string token;
+    public List<string> token;
     public string itemChange;
     //public int isOpposite;
     public string generateToken;
@@ -34,30 +34,30 @@ public class ItemTokenCombination : Singleton<ItemTokenCombination>
     {
         if (!infoDict.ContainsKey(infoName))
         {
-            Debug.LogError("no info " + infoName);
+           // Debug.LogError("no info " + infoName);
             return default(List<ItemTokenInfo>);
         }
         return infoDict[infoName];
     }
 
 
-    public List<ItemTokenInfo> getInfo(string infoName,string tokenName)
-    {
-        if (!infoDict.ContainsKey(infoName))
-        {
-            Debug.LogError("no info " + infoName);
-            return default(List<ItemTokenInfo>);
-        }
-        List<ItemTokenInfo> res = new List<ItemTokenInfo>();
-        foreach (var i in infoDict[infoName])
-        {
-            if(i.token == tokenName)
-            {
-                res.Add(i);
-            }
-        }
-        return res;
-    }
+    //public List<ItemTokenInfo> getInfo(string infoName,string tokenName)
+    //{
+    //    if (!infoDict.ContainsKey(infoName))
+    //    {
+    //        Debug.LogError("no info " + infoName);
+    //        return default(List<ItemTokenInfo>);
+    //    }
+    //    List<ItemTokenInfo> res = new List<ItemTokenInfo>();
+    //    foreach (var i in infoDict[infoName])
+    //    {
+    //        if(i.token == tokenName)
+    //        {
+    //            res.Add(i);
+    //        }
+    //    }
+    //    return res;
+    //}
     // Update is called once per frame
     void Update()
     {

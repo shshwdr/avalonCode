@@ -126,14 +126,17 @@ public class QuestManager : InfoManager<QuestManager, QuestInfo>
     {
         foreach (var info in activeQuests())
         {
-            bool isFinished = false;
+            bool isFinished = true;
             bool res;
             //foreach (var entry in info.entries)
             {
                     switch (info.type)
                 {
                     case "hasToken":
-                        TokenInventoryManager.Instance.hasToken(info.typeCategory);
+                        if (!TokenInventoryManager.Instance.hasToken(info.typeCategory))
+                        {
+                            isFinished = false;
+                        }
                         break;
                     //case "setTitleExclude":
                     //    res = MyLuaFunctions.Instance.ItemTitleContains(info.typeCategory, info.value);

@@ -10,7 +10,7 @@ public class TokenableItem : MonoBehaviour
     public string name;
     public ItemInfo info;
     public List<Token> tokens = new List<Token>();
-    string titleChange = "";
+    //string titleChange = "";
     public SpriteRenderer renderer;
     // Start is called before the first frame update
     void Start()
@@ -34,18 +34,18 @@ public class TokenableItem : MonoBehaviour
 
     public void addToken(string tokenName, Vector2Int index)
     {
-        //todo should have token position
+        //todo should have token position 
         Token token = new Token(tokenName, index,this);
         tokens.Add(token);
 
-        //updateTitleChange();
+        updateTokens();
     }
 
     public void addToken(Token token)
     {
         tokens.Add(token);
 
-       // updateTitleChange();
+        updateTokens();
     }
 
     public void removeToken(Token token)
@@ -56,64 +56,78 @@ public class TokenableItem : MonoBehaviour
 
     public bool canGeneration()
     {
-        var itemName = name;
-        foreach (var token in tokens)
-        {
-            var combinations = ItemTokenCombination.Instance.getInfo(itemName, token.name);
-            foreach (var com in combinations)
-            {
-                if (com.generateToken != null && com.generateToken != "")
-                {
-                    //generate token and consume token
-                    tokens.Remove(token);
-                    tokens.Add(new Token(com.generateToken, token.index, this));
-                    updateTitleChange();
+        
+        return generatableCombination!=null;
+    }
 
-                    EventPool.Trigger("selectInteractiveItem");
-                    return true;
-                }
-            }
-        }
-        return false;
+    public ItemTokenInfo getGeneratableCombination()
+    {
+        return generatableCombination;
     }
 
     public void generate()
     {
 
     }
+    ItemTokenInfo generatableCombination;
 
-    public void updateTitleChange()
+    public void updateTokens()
     {
-       var newTitleChange = "";
+        generatableCombination = null;
         var itemName = name;
         if (GetComponent<NPC>())
         {
             itemName = "NPC";
         }
         //sort by size of token
-        foreach (var token in tokens)
+
+        var combinations = ItemTokenCombination.Instance.getInfo(itemName);
+        foreach(var comb in combinations)
         {
-            var combinations = ItemTokenCombination.Instance.getInfo(itemName, token.name);
-            foreach(var com in combinations)
+            var combTokens = comb.token;
+            if (combTokens.Count != tokens.Count)
             {
-                if (com.generateToken != null && com.generateToken != "")
+                continue;
+            }
+            bool succeed = true;
+           // List<string> properties = tokens.Select(o => o.name).ToList();
+            foreach (var t in tokens)
+            {
+                if (!combTokens.Contains(t.name))
                 {
-                    //generate token and consume token
-                    tokens.Remove(token);
-                    tokens.Add(new Token(com.generateToken, token.index, this));
-                    updateTitleChange();
-
-                    EventPool.Trigger("selectInteractiveItem");
-                    return;
+                    succeed = false;
+                    break;
                 }
-                //if (!com.IsOpposite)
-                //{
-
-                //    newTitleChange += com.titleChange + " ";
-                //    break;
-                //}
+            }
+            if (succeed)
+            {
+                generatableCombination = comb;
+                EventPool.Trigger("selectInteractiveItem");
             }
         }
+        //foreach (var token in tokens)
+        //{
+        //    var combinations = ItemTokenCombination.Instance.getInfo(itemName, token.name);
+        //    foreach(var com in combinations)
+        //    {
+        //        if (com.generateToken != null && com.generateToken != "")
+        //        {
+        //            //generate token and consume token
+        //            tokens.Remove(token);
+        //            tokens.Add(new Token(com.generateToken, token.index, this));
+        //            updateTitleChange();
+
+        //            EventPool.Trigger("selectInteractiveItem");
+        //            return;
+        //        }
+        //        //if (!com.IsOpposite)
+        //        //{
+
+        //        //    newTitleChange += com.titleChange + " ";
+        //        //    break;
+        //        //}
+        //    }
+        //}
 
         //List<string> properties = tokens.Select(o => o.name).ToList();
         //foreach (var com in ItemTokenCombination.Instance.getInfo(itemName))
@@ -125,24 +139,24 @@ public class TokenableItem : MonoBehaviour
         //    }
         //}
 
-        if(tokens.Count == 0)
-        {
+        //if(tokens.Count == 0)
+        //{
 
-        }
+        //}
 
         //should sort titles too
-        if (Regex.Replace(newTitleChange, @"\s", "") != Regex.Replace(titleChange, @"\s", ""))
-        {
-            updateOthersAfterUpdateTitle(titleChange, newTitleChange);
-            titleChange = newTitleChange;
+        //if (Regex.Replace(newTitleChange, @"\s", "") != Regex.Replace(titleChange, @"\s", ""))
+        //{
+        //    updateOthersAfterUpdateTitle(titleChange, newTitleChange);
+        //    titleChange = newTitleChange;
 
 
 
 
-            EventPool.Trigger("titleChange",fullTitle());
+        //    EventPool.Trigger("titleChange",fullTitle());
 
-            QuestManager.Instance.updateQuestFromNoWhere();
-        }
+        //    QuestManager.Instance.updateQuestFromNoWhere();
+        //}
     }
 
     void updateOthersAfterUpdateTitle(string old,string newT)
@@ -166,6 +180,13 @@ public class TokenableItem : MonoBehaviour
             return "";
             //Debug.LogError("?");
         }
-        return titleChange + info.title;
+        var res = info.title;
+
+        if (canGeneration() && generatableCombination.itemChange!="")
+        {
+            res += " => " + generatableCombination.itemChange;
+        }
+
+        return res;
     }
 }

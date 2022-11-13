@@ -13,7 +13,7 @@ public class CodeBookMenu : MonoBehaviour
 
     public Dictionary<Vector2Int, TokenGridCellEmpty> emptyGridCellDict = new Dictionary<Vector2Int, TokenGridCellEmpty>();
     TokenGridCellEmpty[] emptyGridCells;
-
+    public Button generateButton;
 
     TokenInventoryCellEmpty[] emptyInventoryCells;
 
@@ -23,10 +23,10 @@ public class CodeBookMenu : MonoBehaviour
     {
         StartCoroutine(test());
         EventPool.OptIn("selectInteractiveItem", selectInteractiveItem);
-        EventPool.OptIn<string>("titleChange", titleChange);
+        //EventPool.OptIn<string>("titleChange", titleChange);
         EventPool.OptIn("updateTokenInventory", inventoryChange);
         emptyGridCells = GetComponentsInChildren<TokenGridCellEmpty>(true);
-
+        generateButton.interactable = false;
         int k = 0;
         for (int i = 0; i < 3; i++)
         {
@@ -47,10 +47,10 @@ public class CodeBookMenu : MonoBehaviour
 
 
     }
-    void titleChange(string t)
-    {
-        title.text = t;
-    }
+    //void titleChange(string t)
+    //{
+    //    title.text = t;
+    //}
     void inventoryChange()
     {
         for(int i = 0; i < TokenInventoryManager.Instance.tokens.Length; i++)
@@ -85,6 +85,16 @@ public class CodeBookMenu : MonoBehaviour
         return go;
     }
 
+    public void generate()
+    {
+
+    }
+
+    public void update()
+    {
+
+    }
+
     void selectInteractiveItem()
     {
         foreach (var c in tetrisCells)
@@ -102,6 +112,11 @@ public class CodeBookMenu : MonoBehaviour
             var name = selectItem.name;
 
             title.text = selectItem.fullTitle();
+
+            //if (selectItem.canGeneration())
+            {
+                generateButton.interactable = selectItem.canGeneration();
+            }
 
             //show current tokens
             foreach(var token in selectItem.tokens)
