@@ -52,8 +52,8 @@ public class Token
                 Debug.LogError("it should have an item");
                 return;
             }
-            item.removeToken(this);
             TokenInventoryManager.Instance.addToken(this);
+            item.removeToken(this);
             item = null;
         }
     }

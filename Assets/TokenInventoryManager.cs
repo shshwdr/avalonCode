@@ -22,6 +22,7 @@ public class TokenInventoryManager : Singleton<TokenInventoryManager>
         }
 
         tokens[index] = token;
+        QuestManager.Instance.updateQuestFromNoWhere();
         //EventPool.Trigger("updateTokenInventory");
     }
 
@@ -29,7 +30,7 @@ public class TokenInventoryManager : Singleton<TokenInventoryManager>
     {
         foreach(var t in tokens)
         {
-            if(t.name == tokenName)
+            if(t!=null && t.name == tokenName)
             {
                 return true;
             }

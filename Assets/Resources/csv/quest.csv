@@ -1,3 +1,4 @@
 ﻿name,title,returnNPC,grantTitleRequest,grantQuestRequest,type,typeCategory,value
 findFlammable,Find something flammable,baker,,,hasToken,flammable,
-checkOven,Check the oven,baker,,findFlammable,hasToken,hot,
+checkOven,Check the oven,baker,,none,hasToken,hot,
+cookBread,Cook the bread,baker,,none,hasItem,bread,

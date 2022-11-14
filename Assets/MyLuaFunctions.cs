@@ -19,6 +19,10 @@ public class MyLuaFunctions : Singleton<MyLuaFunctions>
         Lua.RegisterFunction("IsQuestActive", this, SymbolExtensions.GetMethodInfo(() => IsQuestActive(string.Empty)));
         Lua.RegisterFunction("IsQuestToBeFinish", this, SymbolExtensions.GetMethodInfo(() => IsQuestToBeFinish(string.Empty)));
         Lua.RegisterFunction("IsQuestFinished", this, SymbolExtensions.GetMethodInfo(() => IsQuestFinished(string.Empty)));
+
+        //show grid
+
+        Lua.RegisterFunction("ShowGrid", this, SymbolExtensions.GetMethodInfo(() => ShowGrid(string.Empty)));
     }
 
     void OnDisable()
@@ -27,6 +31,12 @@ public class MyLuaFunctions : Singleton<MyLuaFunctions>
         // as Don't Destroy On Load (on by default), don't unregister Lua functions.
         Lua.UnregisterFunction("GameObjectExists"); // <-- Only if not on Dialogue Manager.
         Lua.UnregisterFunction("ItemTitle"); // <-- Only if not on Dialogue Manager.
+    }
+
+    public void ShowGrid(string name)
+    {
+        MouseInputManager.Instance.selectItem( GameObject.Find(name).GetComponent<TokenableItem>());
+
     }
 
     public bool GameObjectExists(string name)

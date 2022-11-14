@@ -138,35 +138,50 @@ public class QuestManager : InfoManager<QuestManager, QuestInfo>
                             isFinished = false;
                         }
                         break;
-                    //case "setTitleExclude":
-                    //    res = MyLuaFunctions.Instance.ItemTitleContains(info.typeCategory, info.value);
-                    //    if (!res)
-                    //    {
-                    //        isFinished = true;
-                    //    }
-                    //    break;
-                    //case "setTitleInclude":
-                    //    res = MyLuaFunctions.Instance.ItemTitleContains(info.typeCategory, info.value);
-                    //    if (res)
-                    //    {
-                    //        isFinished = true;
-                    //    }
-                    //    break;
-                    //        //case "questItemAmount":
-                    //        //    if (getQuestItemAmount(entry.subtype) >= entry.amount)
-                    //        //    {
-                    //        //        entry.state = QuestState.success;
-                    //        //    }
-                    //        //    break;
-                    //        //case "inventoryAmount":
-                    //        //    if (Inventory.Instance.hasItem(entry.subtype))
-                    //        //    {
-                    //        //        entry.state = QuestState.success;
-                    //        //    }
-                    //        //    break;
-                    //        //case "variableAmount":
-                    //        //    if (DialogueLua.GetVariable(entry.subtype).asInt >= entry.amount)
-                    //        //    {
+                    case "hasItem":
+                        bool found = false;
+                        foreach(var item in GameObject.FindObjectsOfType<TokenableItem>())
+                        {
+                            if(item.name == info.typeCategory)
+                            {
+                                found = true;
+                            }
+                        }
+                        
+                        if (!found)
+                        {
+                            isFinished = false;
+                        }
+                        break;
+                        //case "setTitleExclude":
+                        //    res = MyLuaFunctions.Instance.ItemTitleContains(info.typeCategory, info.value);
+                        //    if (!res)
+                        //    {
+                        //        isFinished = true;
+                        //    }
+                        //    break;
+                        //case "setTitleInclude":
+                        //    res = MyLuaFunctions.Instance.ItemTitleContains(info.typeCategory, info.value);
+                        //    if (res)
+                        //    {
+                        //        isFinished = true;
+                        //    }
+                        //    break;
+                        //        //case "questItemAmount":
+                        //        //    if (getQuestItemAmount(entry.subtype) >= entry.amount)
+                        //        //    {
+                        //        //        entry.state = QuestState.success;
+                        //        //    }
+                        //        //    break;
+                        //        //case "inventoryAmount":
+                        //        //    if (Inventory.Instance.hasItem(entry.subtype))
+                        //        //    {
+                        //        //        entry.state = QuestState.success;
+                        //        //    }
+                        //        //    break;
+                        //        //case "variableAmount":
+                        //        //    if (DialogueLua.GetVariable(entry.subtype).asInt >= entry.amount)
+                        //        //    {
 
                         //        //        entry.state = QuestState.success;
                         //        //    }
@@ -224,6 +239,12 @@ public class QuestManager : InfoManager<QuestManager, QuestInfo>
                 {
                     if(request == "")
                     {
+                        break;
+                    }
+                    if(request == "none")
+                    {
+
+                        allFinished = false;
                         break;
                     }
                     if(infoDict[request].state != QuestState.success)

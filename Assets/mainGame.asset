@@ -1878,6 +1878,12 @@ MonoBehaviour:
         destinationDialogueID: 20
         isConnector: 0
         priority: 1
+      - originConversationID: 3
+        originDialogueID: 0
+        destinationConversationID: 3
+        destinationDialogueID: 21
+        isConnector: 0
+        priority: 2
       conditionsString: 
       userScript: 
       onExecute:
@@ -1885,7 +1891,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 30
+        x: 32.17392
         y: 20
         width: 160
         height: 30
@@ -2249,7 +2255,9 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: StartQuest("findFlammable")
+      userScript: 'StartQuest("findFlammable");
+
+'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -2323,7 +2331,7 @@ MonoBehaviour:
         destinationDialogueID: 8
         isConnector: 0
         priority: 2
-      conditionsString: (IsQuestActive("findFlammable")) and (not IsQuestToBeFinish("findFlammable"))
+      conditionsString: '(IsQuestActive("findFlammable")) '
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -2398,7 +2406,7 @@ MonoBehaviour:
         destinationDialogueID: 9
         isConnector: 0
         priority: 2
-      conditionsString: IsQuestActive("findFlammable") and IsQuestToBeFinish("findFlammable")
+      conditionsString: IsQuestToBeFinish("findFlammable")
       userScript: FinishQuest("findFlammable")
       onExecute:
         m_PersistentCalls:
@@ -2768,8 +2776,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 866.84186
-        y: 80.526306
+        x: 835.9328
+        y: 96.88992
         width: 160
         height: 30
     - id: 13
@@ -2832,14 +2840,18 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: FinishQuest("checkOven")
+      userScript: 'FinishQuest("checkOven");
+
+        StartQuest("cookBread")
+
+        ShowGrid("dough");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 866.84186
-        y: 130.5263
+        x: 841.3873
+        y: 152.34448
         width: 160
         height: 30
     - id: 14
@@ -2906,7 +2918,7 @@ MonoBehaviour:
         destinationDialogueID: 15
         isConnector: 0
         priority: 2
-      conditionsString: 
+      conditionsString: IsQuestToBeFinish("cookBread")
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -2982,7 +2994,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: FinishQuest("cookBread");
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -3269,8 +3281,8 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: 
-      userScript: 
+      conditionsString: IsQuestFinished("cookBread")
+      userScript: ShowGrid("dough");
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -3349,9 +3361,78 @@ MonoBehaviour:
         y: 214.73682
         width: 160
         height: 30
+    - id: 21
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Pictures
+        value: '[]'
+        type: 3
+        typeString: CustomFieldType_Files
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 5
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 6
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: Put the hot into the dough!
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Parenthetical
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Audio Files
+        value: '[]'
+        type: 3
+        typeString: CustomFieldType_Files
+      - title: Video File
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: es
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      conversationID: 3
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 'IsQuestActive("cookBread") '
+      userScript: ShowGrid("dough");
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 971.77783
+        y: 235.45439
+        width: 160
+        height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 5.7142944, y: 57.142822}
-    canvasZoom: 0.7000003
+    canvasScrollPosition: {x: 41.3042, y: 27.591858}
+    canvasZoom: 0.46000046
   syncInfo:
     syncActors: 0
     syncItems: 0

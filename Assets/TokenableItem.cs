@@ -25,7 +25,13 @@ public class TokenableItem : MonoBehaviour
         renderer.sprite = Resources.Load<Sprite>("item/" + name);
         //updateTitleChange();
     }
+    public void deselect()
+    {
+        foreach(var t in tokens)
+        {
 
+        }
+    }
     // Update is called once per frame
     void Update()
     {
@@ -75,7 +81,9 @@ public class TokenableItem : MonoBehaviour
             {
                 var go = Instantiate(ItemManager.Instance.interactiveItemPrefab, transform.position, transform.rotation, transform.parent);
                 go.GetComponent<TokenableItem>().name = generatableCombination.itemChange;
-                Destroy(gameObject);
+                //todo check if need to destroy
+               // Destroy(gameObject);
+                MouseInputManager.Instance.selectItem(null);
             }else if(generatableCombination.generateToken != "")
             {
                 tokens.Clear();
@@ -91,6 +99,7 @@ public class TokenableItem : MonoBehaviour
         }
         generatableCombination = null;
         EventPool.Trigger("selectInteractiveItem");
+        QuestManager.Instance.updateQuestFromNoWhere();
     }
     ItemTokenInfo generatableCombination;
 
@@ -215,7 +224,7 @@ public class TokenableItem : MonoBehaviour
 
         if (canGeneration() && generatableCombination.itemChange!="")
         {
-            res += " => " + generatableCombination.itemChange;
+            res += " => " + ItemManager.Instance.getInfo( generatableCombination.itemChange).title;
         }
 
         return res;

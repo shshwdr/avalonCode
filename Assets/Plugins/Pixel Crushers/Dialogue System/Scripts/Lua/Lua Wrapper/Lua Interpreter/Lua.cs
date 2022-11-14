@@ -225,7 +225,8 @@ namespace PixelCrushers.DialogueSystem
             }
             catch (Exception e)
             {
-                if (Debug.isDebugBuild && !muteExceptions) Debug.LogError(string.Format("{0}: Lua code '{1}' threw exception '{2}'", new System.Object[] { DialogueDebug.Prefix, luaCode, e.Message }));
+                if (Debug.isDebugBuild && !muteExceptions) 
+                    Debug.LogError(string.Format("{0}: Lua code '{1}' threw exception '{2}'", new System.Object[] { DialogueDebug.Prefix, luaCode, e.Message }));
                 if (allowExceptions) throw e; else return null;
             }
         }

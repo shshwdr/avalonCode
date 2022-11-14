@@ -44,6 +44,10 @@ public class TokenTetrisCell : EventTrigger
     {
         dragging = false;
         //update token position info
+        if (!closestSlot)
+        {
+            Debug.LogError("?");
+        }
         if (closestSlot.GetComponent<TokenGridCellEmpty>())
         {
 

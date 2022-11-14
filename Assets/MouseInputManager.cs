@@ -102,7 +102,10 @@ public class MouseInputManager : Singleton<MouseInputManager>
             //    cancelCurrentDragItem();
             //    return;
             //}
-
+            if (selectedItem)
+            {
+                selectedItem.deselect();
+            }
 
             //if (currentDragItem == null && isInBuildMode)
             //{
