@@ -87,13 +87,9 @@ public class CodeBookMenu : MonoBehaviour
 
     public void generate()
     {
-
+        MouseInputManager.Instance.selectedItem.generate();
     }
 
-    public void update()
-    {
-
-    }
 
     void selectInteractiveItem()
     {

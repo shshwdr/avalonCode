@@ -12,7 +12,7 @@ public class ItemInfo:BaseInfo
 public class ItemManager : InfoManager<ItemManager, ItemInfo>
 {
     // Start is called before the first frame update
-
+    public GameObject interactiveItemPrefab;
     public void init()
     {
         infoList = CsvUtil.LoadObjects<ItemInfo>("item");

@@ -32,6 +32,8 @@ public class TokenableItem : MonoBehaviour
         
     }
 
+   
+
     public void addToken(string tokenName, Vector2Int index)
     {
         //todo should have token position 
@@ -51,7 +53,7 @@ public class TokenableItem : MonoBehaviour
     public void removeToken(Token token)
     {
         tokens.Remove(token);
-        //updateTitleChange();
+        updateTokens();
     }
 
     public bool canGeneration()
@@ -67,7 +69,28 @@ public class TokenableItem : MonoBehaviour
 
     public void generate()
     {
-
+        if (generatableCombination != null)
+        {
+            if (generatableCombination.itemChange != "")
+            {
+                var go = Instantiate(ItemManager.Instance.interactiveItemPrefab, transform.position, transform.rotation, transform.parent);
+                go.GetComponent<TokenableItem>().name = generatableCombination.itemChange;
+                Destroy(gameObject);
+            }else if(generatableCombination.generateToken != "")
+            {
+                tokens.Clear();
+                addToken(generatableCombination.generateToken,new Vector2Int(0,0));
+            }else
+            {
+                Debug.LogError("no item change and no token generation for " + generatableCombination.item);
+            }
+        }
+        else
+        {
+            Debug.LogError("generation without generatableCombination");
+        }
+        generatableCombination = null;
+        EventPool.Trigger("selectInteractiveItem");
     }
     ItemTokenInfo generatableCombination;
 
@@ -82,6 +105,11 @@ public class TokenableItem : MonoBehaviour
         //sort by size of token
 
         var combinations = ItemTokenCombination.Instance.getInfo(itemName);
+        if(combinations == null)
+        {
+            EventPool.Trigger("selectInteractiveItem");
+            return;
+        }
         foreach(var comb in combinations)
         {
             var combTokens = comb.token;
@@ -103,8 +131,11 @@ public class TokenableItem : MonoBehaviour
             {
                 generatableCombination = comb;
                 EventPool.Trigger("selectInteractiveItem");
+                return;
             }
         }
+
+        EventPool.Trigger("selectInteractiveItem");
         //foreach (var token in tokens)
         //{
         //    var combinations = ItemTokenCombination.Instance.getInfo(itemName, token.name);
