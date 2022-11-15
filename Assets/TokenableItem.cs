@@ -17,10 +17,13 @@ public class TokenableItem : MonoBehaviour
     {
         info = ItemManager.Instance.getInfo(name);
         //add start token
-        if (info.start!=null && info.start.Length>0)
+        if (info.start!=null)
         {
-            addToken(info.start, new Vector2Int(0, 0));
 
+            for (int i = 0; i < info.start.Count; i++)
+            {
+                addToken(info.start[i], new Vector2Int(0,i));
+            }
         }
         renderer.sprite = Resources.Load<Sprite>("item/" + name);
         //updateTitleChange();
@@ -77,6 +80,7 @@ public class TokenableItem : MonoBehaviour
     {
         if (generatableCombination != null)
         {
+            bool shouldDestory = generatableCombination.shouldDestoryWhenCombine;
             if (generatableCombination.itemChange != "")
             {
                 var go = Instantiate(ItemManager.Instance.interactiveItemPrefab, transform.position, transform.rotation, transform.parent);
@@ -84,13 +88,23 @@ public class TokenableItem : MonoBehaviour
                 //todo check if need to destroy
                // Destroy(gameObject);
                 MouseInputManager.Instance.selectItem(null);
-            }else if(generatableCombination.generateToken != "")
+            }
+            else if (generatableCombination.generateToken != "")
             {
                 tokens.Clear();
-                addToken(generatableCombination.generateToken,new Vector2Int(0,0));
-            }else
+                addToken(generatableCombination.generateToken, new Vector2Int(0, 0));
+            }
+            else if (generatableCombination.generateInventory != "")
+            {
+                ItemInventoryManager.Instance.addTokenableItem(generatableCombination.generateInventory);
+            }
+            else
             {
                 Debug.LogError("no item change and no token generation for " + generatableCombination.item);
+            }
+            if (shouldDestory)
+            {
+                Destroy(gameObject);
             }
         }
         else

@@ -29,6 +29,7 @@ public class QuestInfo
     public string name;
     public string title;
     public string returnNPC;
+    public string startNPC; 
     public string activateNext;
     public QuestState state;
     //public GeneralTypeAmount[] reward;
@@ -132,6 +133,8 @@ public class QuestManager : InfoManager<QuestManager, QuestInfo>
             {
                     switch (info.type)
                 {
+                    case "none":
+                        break;
                     case "hasToken":
                         if (!TokenInventoryManager.Instance.hasToken(info.typeCategory))
                         {
@@ -139,19 +142,36 @@ public class QuestManager : InfoManager<QuestManager, QuestInfo>
                         }
                         break;
                     case "hasItem":
-                        bool found = false;
-                        foreach(var item in GameObject.FindObjectsOfType<TokenableItem>())
-                        {
-                            if(item.name == info.typeCategory)
-                            {
-                                found = true;
-                            }
-                        }
-                        
-                        if (!found)
+                        if (!ItemInventoryManager.Instance.hasTokenableItem(info.typeCategory))
                         {
                             isFinished = false;
                         }
+                        //bool found = false;
+                        //foreach(var item in GameObject.FindObjectsOfType<TokenableItem>())
+                        //{
+                        //    if(item.name == info.typeCategory)
+                        //    {
+                        //        found = true;
+                        //    }
+                        //}
+                        
+                        //if (!found)
+                        //{
+                        //    isFinished = false;
+                        //}
+                        break;
+                    case "checkState":
+                        foreach (var item in GameObject.FindObjectsOfType<StateItem>())
+                        {
+                            if (item.name == info.typeCategory)
+                            {
+                                if(item.state != int.Parse( info.value))
+                                {
+                                    isFinished = false;
+                                }
+                            }
+                        }
+
                         break;
                         //case "setTitleExclude":
                         //    res = MyLuaFunctions.Instance.ItemTitleContains(info.typeCategory, info.value);
@@ -218,7 +238,7 @@ public class QuestManager : InfoManager<QuestManager, QuestInfo>
                 info.state = QuestState.returnToNPC;
 
                 var returnNPC = infoDict[info.name].returnNPC;
-                if (returnNPC != null)
+                if (returnNPC != "")
                 {
 
                     NPCManager.Instance.npcScriptDict[returnNPC].canFinishQuest();
@@ -377,10 +397,10 @@ public class QuestManager : InfoManager<QuestManager, QuestInfo>
         EventPool.Trigger("updateQuest");
         DialogueLua.SetQuestField(name, "State", "active");
 
-        var returnNPC = infoDict[name].returnNPC;
-        if (returnNPC != null)
+        var startNPC = infoDict[name].startNPC;
+        if (startNPC != "")
         {
-            NPCManager.Instance.npcScriptDict[returnNPC].hideAllQuestMarkers();
+            NPCManager.Instance.npcScriptDict[startNPC].hideAllQuestMarkers();
         }
     }
 
@@ -422,11 +442,11 @@ public class QuestManager : InfoManager<QuestManager, QuestInfo>
         infoDict[name].state = QuestState.grantable;
         DialogueLua.SetQuestField(name, "State", "grantable");
 
-        var returnNPC = infoDict[name].returnNPC;
-        if (returnNPC != null)
+        var startNPC = infoDict[name].startNPC;
+        if (startNPC != "")
         {
 
-            NPCManager.Instance.npcScriptDict[returnNPC].willGrantQuest();
+            NPCManager.Instance.npcScriptDict[startNPC].willGrantQuest();
         }
     }
     public void finishQuest(string name)
@@ -444,7 +464,7 @@ public class QuestManager : InfoManager<QuestManager, QuestInfo>
         startNextQuest(info);
 
         var returnNPC = infoDict[name].returnNPC;
-        if (returnNPC != null)
+        if (returnNPC != "")
         {
 
             NPCManager.Instance.npcScriptDict[returnNPC].hideAllQuestMarkers();

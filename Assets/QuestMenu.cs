@@ -28,6 +28,10 @@ public class QuestMenu : MonoBehaviour
 
     public void UpdateQuest()
     {
+        if (DialogueUtils.Instance.isInDialogue)
+        {
+            return;
+        }
         int i = 0;
         foreach (var info in QuestManager.Instance.activeQuests())
         {

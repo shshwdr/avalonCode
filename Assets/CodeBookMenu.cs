@@ -15,16 +15,16 @@ public class CodeBookMenu : MonoBehaviour
     TokenGridCellEmpty[] emptyGridCells;
     public Button generateButton;
 
-    TokenInventoryCellEmpty[] emptyInventoryCells;
+    public TokenInventoryMenu tokenInventoryMenu;
 
     List<GameObject> tetrisCells = new List<GameObject>();
     // Start is called before the first frame update
     void Start()
     {
+        tokenInventoryMenu.bookMenu = this;
         StartCoroutine(test());
         EventPool.OptIn("selectInteractiveItem", selectInteractiveItem);
         //EventPool.OptIn<string>("titleChange", titleChange);
-        EventPool.OptIn("updateTokenInventory", inventoryChange);
         emptyGridCells = GetComponentsInChildren<TokenGridCellEmpty>(true);
         generateButton.interactable = false;
         int k = 0;
@@ -39,11 +39,6 @@ public class CodeBookMenu : MonoBehaviour
             }
         }
 
-        emptyInventoryCells = GetComponentsInChildren<TokenInventoryCellEmpty>(true);
-        for (int i = 0; i < emptyInventoryCells.Length; i++)
-        {
-            emptyInventoryCells[i].index = i;
-        }
 
 
     }
@@ -51,30 +46,20 @@ public class CodeBookMenu : MonoBehaviour
     //{
     //    title.text = t;
     //}
-    void inventoryChange()
-    {
-        for(int i = 0; i < TokenInventoryManager.Instance.tokens.Length; i++)
-        {
-            if (TokenInventoryManager.Instance.tokens[i] != null)
-            {
-                createToken(TokenInventoryManager.Instance.tokens[i]);
-            }
-        }
-    }
     IEnumerator test()
     {
         yield return new WaitForSeconds(0.1f);
         codeBookOB.SetActive(false);
     }
 
-    GameObject createToken(Token token)
+    public GameObject createToken(Token token)
     {
         var go = Instantiate(tokenTetrisCellPrefab, transform);
         go.GetComponent<TokenTetrisCell>().init(token, this);
         var position = Vector3.zero;
         if (token.isInventory)
         {
-            position = emptyInventoryCells[token.indexInt].transform.position;
+            position = tokenInventoryMenu.emptyInventoryCells[token.indexInt].transform.position;
         }
         else
         {
@@ -120,7 +105,7 @@ public class CodeBookMenu : MonoBehaviour
                 var go = createToken(token);
                 //tetrisCells.Add(go);
             }
-            inventoryChange();
+            tokenInventoryMenu. inventoryChange();
         } 
         else
         {
@@ -144,7 +129,7 @@ public class CodeBookMenu : MonoBehaviour
             }
         }
 
-        foreach(var s in emptyInventoryCells)
+        foreach(var s in tokenInventoryMenu.emptyInventoryCells)
         {
             var dis = Vector2.Distance(pos, (Vector2)s.transform.position);
             if (dis <= closestDistance)

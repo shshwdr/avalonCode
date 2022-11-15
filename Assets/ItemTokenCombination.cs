@@ -9,6 +9,9 @@ public class ItemTokenInfo
     public string itemChange;
     //public int isOpposite;
     public string generateToken;
+    public string generateInventory;
+    public int destroyCombine;
+    public bool shouldDestoryWhenCombine { get { return destroyCombine == 1; } }
     //public bool IsOpposite { get { return isOpposite == 1; } }
 
 }

@@ -1,6 +1,11 @@
 ﻿name,desc,title,start
-branch,,Branch,flammable
+branch,,Branch,flammable|fragile
 dough,,Dough,
 bread,,Bread,filling
 oven,,Oven,
 baker,,Baker,
+rock,,Rock,
+gravel,,Gravel,
+key,,Key,
+woody,,Woody,
+jody,,Jody,

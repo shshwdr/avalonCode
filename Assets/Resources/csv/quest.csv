@@ -1,4 +1,7 @@
-﻿name,title,returnNPC,grantTitleRequest,grantQuestRequest,type,typeCategory,value
-findFlammable,Find something flammable,baker,,,hasToken,flammable,
-checkOven,Check the oven,baker,,none,hasToken,hot,
-cookBread,Cook the bread,baker,,none,hasItem,bread,
+﻿name,title,startNPC,returnNPC,grantTitleRequest,grantQuestRequest,type,typeCategory,value
+findFlammable,Find something flammable,baker,baker,,,hasToken,flammable,
+checkOven,Check the oven,,baker,,none,hasToken,hot,
+cookBread,Cook the bread,,baker,,none,hasItem,bread,
+talkToWoody,Talk to Woody,jody,woody,,,none,,
+getKey,Get the key from under the rock,,,,none,hasItem,key,
+openGate,Open the gate,,,,none,checkState,gate,1

@@ -11,7 +11,17 @@ public class TokenInventoryManager : Singleton<TokenInventoryManager>
     {
         tokens = new Token[4] {null,null,null,null };
     }
-
+    public void addToken(string name)
+    {
+        for(int i = 0; i < tokens.Length; i++)
+        {
+            if(tokens[i] == null)
+            {
+                var newToken = new Token(name, i);
+                addToken(newToken);
+            }
+        }
+    }
     public void addToken(Token token)
     {
         var index = token.indexInt;

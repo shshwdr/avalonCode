@@ -19,6 +19,14 @@ public class Token
         item = _item;
     }
 
+    public Token(string _n, int _index)
+    {
+        name = _n;
+        info = TokenManager.Instance.getInfo(name);
+        indexInt = _index;
+
+    }
+
     public void updateGridPosition(Vector2Int _index, TokenableItem _item)
     {
         index = _index;

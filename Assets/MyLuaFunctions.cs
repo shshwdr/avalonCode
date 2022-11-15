@@ -23,6 +23,14 @@ public class MyLuaFunctions : Singleton<MyLuaFunctions>
         //show grid
 
         Lua.RegisterFunction("ShowGrid", this, SymbolExtensions.GetMethodInfo(() => ShowGrid(string.Empty)));
+
+        //token
+
+        Lua.RegisterFunction("GetToken", this, SymbolExtensions.GetMethodInfo(() => GetToken(string.Empty)));
+
+        //item
+
+        Lua.RegisterFunction("UseItem", this, SymbolExtensions.GetMethodInfo(() => UseItem(string.Empty)));
     }
 
     void OnDisable()
@@ -35,7 +43,18 @@ public class MyLuaFunctions : Singleton<MyLuaFunctions>
 
     public void ShowGrid(string name)
     {
-        MouseInputManager.Instance.selectItem( GameObject.Find(name).GetComponent<TokenableItem>());
+        MouseInputManager.Instance.selectItem(GameObject.Find(name).GetComponent<TokenableItem>());
+
+    }
+    public void UseItem(string name)
+    {
+        ItemInventoryManager.Instance.removeTokenableItem(name);
+
+    }
+
+    public void GetToken(string name)
+    {
+        TokenInventoryManager.Instance.addToken(name);
 
     }
 

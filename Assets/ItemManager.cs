@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ItemInfo:BaseInfo
 {
-    public string start;
+    public List<string> start;
 
 }
 
