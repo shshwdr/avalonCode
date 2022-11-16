@@ -56,6 +56,9 @@ public class PlayerPickup : MonoBehaviour
         {
             return;
         }
+
+        
+
         if (collectables.Count == 0)
         {
             if (lastClosest)
@@ -65,6 +68,19 @@ public class PlayerPickup : MonoBehaviour
             return;
         }
         int closestIndex = Utils.findClosestIndex(transform, collectables);
+        if(closestIndex == -1)
+        {
+            var collectablesT = new List<InteractiveItem>();
+            foreach(var collectable in collectables)
+            {
+                if(collectable!= null)
+                {
+                    collectablesT.Add(collectable);
+                }
+            }
+            collectables = collectablesT;
+            return;
+        }
         collectables[closestIndex].showPickupUI();
         if (lastClosest && lastClosest != collectables[closestIndex])
         {

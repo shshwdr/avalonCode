@@ -52,6 +52,12 @@ public class InteractiveItem : MonoBehaviour
         }
     }
 
+    private void OnDestroy()
+    {
+
+        GameObject.FindObjectOfType<PlayerPickup>().removeCanPickup(this);
+    }
+
     protected virtual bool canInteract()
     {
         return true;

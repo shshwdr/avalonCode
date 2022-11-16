@@ -9,7 +9,7 @@ public class Talkable : InteractiveItem
     public override void Start()
     {
         base.Start();
-        itemInfo = ItemManager.Instance.getInfo(  GetComponentInParent<NPC>().gameObject.name);
+        itemInfo = ItemManager.Instance.getInfo(  transform.parent.gameObject.name);
         //npc = GetComponent<NPC>();
     }
     public override void interact(PlayerPickup player)

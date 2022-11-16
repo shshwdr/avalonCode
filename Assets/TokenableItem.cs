@@ -83,7 +83,6 @@ public class TokenableItem : MonoBehaviour
             }
             else if (generatableCombination.generateToken != "")
             {
-                tokens.Clear();
                 addToken(generatableCombination.generateToken);
             }
             else if (generatableCombination.generateInventory != "")
@@ -94,6 +93,8 @@ public class TokenableItem : MonoBehaviour
             {
                 Debug.LogError("no item change and no token generation for " + generatableCombination.item);
             }
+
+            tokens.Clear();
             if (shouldDestory)
             {
                 Destroy(gameObject);

@@ -31,6 +31,12 @@ public class MyLuaFunctions : Singleton<MyLuaFunctions>
         //item
 
         Lua.RegisterFunction("UseItem", this, SymbolExtensions.GetMethodInfo(() => UseItem(string.Empty)));
+        Lua.RegisterFunction("HasItem", this, SymbolExtensions.GetMethodInfo(() => HasItem(string.Empty)));
+
+        //state
+
+        Lua.RegisterFunction("ChangeItemState", this, SymbolExtensions.GetMethodInfo(() => ChangeItemState(string.Empty, string.Empty)));
+        Lua.RegisterFunction("ItemState", this, SymbolExtensions.GetMethodInfo(() => ItemState(string.Empty)));
     }
 
     void OnDisable()
@@ -40,15 +46,42 @@ public class MyLuaFunctions : Singleton<MyLuaFunctions>
         Lua.UnregisterFunction("GameObjectExists"); // <-- Only if not on Dialogue Manager.
         Lua.UnregisterFunction("ItemTitle"); // <-- Only if not on Dialogue Manager.
     }
+    public void ChangeItemState(string name, string s)
+    {
+        foreach (var stateItem in GameManager.FindObjectsOfType<StateItem>())
+        {
+            if (stateItem.name == name)
+            {
+                stateItem.setState(int.Parse(s));
+            }
+        }
+    }
+    public int ItemState(string name)
+    {
+        foreach (var stateItem in GameManager.FindObjectsOfType<StateItem>())
+        {
+            if (stateItem.name == name)
+            {
+                return stateItem.state;
+            }
+        }
+        Debug.LogError("no state found " + name);
+        return -1;
 
+    }
     public void ShowGrid(string name)
     {
         MouseInputManager.Instance.selectItem(GameObject.Find(name).GetComponent<TokenableItem>());
 
     }
+    public bool HasItem(string name)
+    {
+        return ItemInventoryManager.Instance.hasTokenableItem(name);
+
+    }
     public void UseItem(string name)
     {
-        ItemInventoryManager.Instance.removeTokenableItem(name);
+         ItemInventoryManager.Instance.removeTokenableItem(name);
 
     }
 

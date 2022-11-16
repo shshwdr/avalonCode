@@ -121,10 +121,14 @@ public class Utils : MonoBehaviour
     }
     static public int findClosestIndex<T>(Transform targetTransform, List<T> candicateTransforms) where T : MonoBehaviour
     {
-        int res = 0;
+        int res = -1;
         float closestDistance = float.MaxValue;
         for (int i = 0; i < candicateTransforms.Count; i++)
         {
+            if(candicateTransforms[i] == null)
+            {
+                continue;
+            }
             float distance = (candicateTransforms[i].transform.position - targetTransform.position).magnitude;
             if (distance < closestDistance)
             {
