@@ -11,36 +11,19 @@ public class CodeBookMenu : MonoBehaviour
 
     public Text title;
 
-    public Dictionary<Vector2Int, TokenGridCellEmpty> emptyGridCellDict = new Dictionary<Vector2Int, TokenGridCellEmpty>();
-    TokenGridCellEmpty[] emptyGridCells;
+    TokenInventoryCell[] emptyGridCells;
     public Button generateButton;
 
-    public TokenInventoryMenu tokenInventoryMenu;
-
-    List<GameObject> tetrisCells = new List<GameObject>();
     // Start is called before the first frame update
     void Start()
     {
-        tokenInventoryMenu.bookMenu = this;
         StartCoroutine(test());
         EventPool.OptIn("selectInteractiveItem", selectInteractiveItem);
         //EventPool.OptIn<string>("titleChange", titleChange);
-        emptyGridCells = GetComponentsInChildren<TokenGridCellEmpty>(true);
         generateButton.interactable = false;
-        int k = 0;
-        for (int i = 0; i < 3; i++)
-        {
-            for (int j = 0; j < 3; j++)
-            {
-                var index = new Vector2Int(i, j);
-                emptyGridCellDict[index] = emptyGridCells[k];
-                emptyGridCells[k].index = index;
-                k++;
-            }
-        }
 
-
-
+        emptyGridCells = GetComponentsInChildren<TokenInventoryCell>(true);
+        selectInteractiveItem();
     }
     //void titleChange(string t)
     //{
@@ -52,23 +35,6 @@ public class CodeBookMenu : MonoBehaviour
         codeBookOB.SetActive(false);
     }
 
-    public GameObject createToken(Token token)
-    {
-        var go = Instantiate(tokenTetrisCellPrefab, transform);
-        go.GetComponent<TokenTetrisCell>().init(token, this);
-        var position = Vector3.zero;
-        if (token.isInventory)
-        {
-            position = tokenInventoryMenu.emptyInventoryCells[token.indexInt].transform.position;
-        }
-        else
-        {
-            position = emptyGridCellDict[token.index].transform.position;
-        }
-        go.GetComponent<RectTransform>().position = position;
-        tetrisCells.Add(go);
-        return go;
-    }
 
     public void generate()
     {
@@ -78,17 +44,12 @@ public class CodeBookMenu : MonoBehaviour
 
     void selectInteractiveItem()
     {
-        foreach (var c in tetrisCells)
-        {
-            Destroy(c);
-        }
-        tetrisCells.Clear();
-
 
         if (MouseInputManager.Instance.selectedItem)
         {
 
             codeBookOB.SetActive(true);
+
             var selectItem = MouseInputManager.Instance.selectedItem;
             var name = selectItem.name;
 
@@ -99,13 +60,17 @@ public class CodeBookMenu : MonoBehaviour
                 generateButton.interactable = selectItem.canGeneration();
             }
 
-            //show current tokens
-            foreach(var token in selectItem.tokens)
+
+            int i = 0;
+            for (; i < selectItem.tokens.Count; i++)
             {
-                var go = createToken(token);
-                //tetrisCells.Add(go);
+                emptyGridCells[i].init(selectItem.tokens[i],false);
             }
-            tokenInventoryMenu. inventoryChange();
+            for (; i < emptyGridCells.Length; i++)
+            {
+                emptyGridCells[i].init("", false);
+            }
+
         } 
         else
         {
@@ -116,31 +81,31 @@ public class CodeBookMenu : MonoBehaviour
     }
 
 
-    public GameObject findClosestSlot(Vector3 pos, TokenTetrisCell cell)
-    {
-        float closestDistance = 10000;
-        GameObject res = null;
-        foreach(var s in emptyGridCells)
-        {
-            var dis = Vector2.Distance(pos, (Vector2)s.transform.position);
-            if (dis <= closestDistance){
-                res = s.gameObject;
-                closestDistance = dis;
-            }
-        }
+    //public GameObject findClosestSlot(Vector3 pos, TokenTetrisCell cell)
+    //{
+    //    float closestDistance = 10000;
+    //    GameObject res = null;
+    //    foreach(var s in emptyGridCells)
+    //    {
+    //        var dis = Vector2.Distance(pos, (Vector2)s.transform.position);
+    //        if (dis <= closestDistance){
+    //            res = s.gameObject;
+    //            closestDistance = dis;
+    //        }
+    //    }
 
-        foreach(var s in tokenInventoryMenu.emptyInventoryCells)
-        {
-            var dis = Vector2.Distance(pos, (Vector2)s.transform.position);
-            if (dis <= closestDistance)
-            {
-                res = s.gameObject;
-                closestDistance = dis;
-            }
-        }
+    //    foreach(var s in tokenInventoryMenu.emptyInventoryCells)
+    //    {
+    //        var dis = Vector2.Distance(pos, (Vector2)s.transform.position);
+    //        if (dis <= closestDistance)
+    //        {
+    //            res = s.gameObject;
+    //            closestDistance = dis;
+    //        }
+    //    }
 
-        return res;
-    }
+    //    return res;
+    //}
 
     // Update is called once per frame
     void Update()

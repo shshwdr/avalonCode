@@ -5,63 +5,28 @@ using UnityEngine;
 
 public class TokenInventoryManager : Singleton<TokenInventoryManager>
 {
-    public Token[] tokens;
-    // Start is called before the first frame update
-    void Start()
-    {
-        tokens = new Token[4] {null,null,null,null };
-    }
-    public void addToken(string name)
-    {
-        for(int i = 0; i < tokens.Length; i++)
-        {
-            if(tokens[i] == null)
-            {
-                var newToken = new Token(name, i);
-                addToken(newToken);
-            }
-        }
-    }
-    public void addToken(Token token)
-    {
-        var index = token.indexInt;
+    public List<string> tokens = new List<string>();
 
-        if (tokens[index] != null)
-        {
-            Debug.LogError("token inventory should be empty " + index);
-        }
-
-        tokens[index] = token;
+    public void addToken(string item)
+    {
+        tokens.Add(item);
         QuestManager.Instance.updateQuestFromNoWhere();
-        //EventPool.Trigger("updateTokenInventory");
-    }
-
-    public bool hasToken(string tokenName)
-    {
-        foreach(var t in tokens)
-        {
-            if(t!=null && t.name == tokenName)
-            {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public void removeToken(int index)
-    {
-        if (tokens[index] == null)
-        {
-            Debug.LogError("token inventory should not be empty " + index);
-        }
-
-        tokens[index] = null;
         EventPool.Trigger("updateTokenInventory");
     }
 
-    // Update is called once per frame
-    void Update()
+    public bool hasToken(string itemName)
     {
-        
+        return tokens.Contains(itemName);
+    }
+
+    public void removeToken(string itemName)
+    {
+        if (!tokens.Contains(itemName))
+        {
+
+            Debug.Log("remove item not exsit " + itemName);
+        }
+        tokens.Remove(itemName);
+        EventPool.Trigger("updateTokenInventory");
     }
 }

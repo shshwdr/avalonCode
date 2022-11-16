@@ -5,34 +5,28 @@ using UnityEngine;
 
 public class TokenInventoryMenu : MonoBehaviour
 {
-    public TokenInventoryCellEmpty[] emptyInventoryCells;
-    public CodeBookMenu bookMenu;
+    TokenInventoryCell[] emptyInventoryCells;
     // Start is called before the first frame update
     void Start()
     {
         EventPool.OptIn("updateTokenInventory", inventoryChange);
 
 
-        emptyInventoryCells = GetComponentsInChildren<TokenInventoryCellEmpty>(true);
-        for (int i = 0; i < emptyInventoryCells.Length; i++)
-        {
-            emptyInventoryCells[i].index = i;
-        }
+        emptyInventoryCells = GetComponentsInChildren<TokenInventoryCell>(true);
+        inventoryChange();
     }
 
     public void inventoryChange()
     {
-        for (int i = 0; i < TokenInventoryManager.Instance.tokens.Length; i++)
+
+        int i = 0;
+        for (; i < TokenInventoryManager.Instance.tokens.Count; i++)
         {
-            if (TokenInventoryManager.Instance.tokens[i] != null)
-            {
-                bookMenu.createToken(TokenInventoryManager.Instance.tokens[i]);
-            }
+            emptyInventoryCells[i].init(TokenInventoryManager.Instance.tokens[i],true);
         }
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        
+        for (; i < emptyInventoryCells.Length; i++)
+        {
+            emptyInventoryCells[i].init("", true);
+        }
     }
 }

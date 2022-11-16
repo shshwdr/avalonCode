@@ -88,7 +88,7 @@ public class MouseInputManager : Singleton<MouseInputManager>
         //    currentDragItem.transform.RotateAround(Vector3.zero, Vector3.up * tilt, rotateSmooth * Time.deltaTime);
         //}
 
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(0))
         {
             if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
             {

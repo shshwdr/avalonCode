@@ -9,7 +9,7 @@ public class TokenableItem : MonoBehaviour
 {
     public string name;
     public ItemInfo info;
-    public List<Token> tokens = new List<Token>();
+    public List<string> tokens = new List<string>();
     //string titleChange = "";
     public SpriteRenderer renderer;
     // Start is called before the first frame update
@@ -22,7 +22,7 @@ public class TokenableItem : MonoBehaviour
 
             for (int i = 0; i < info.start.Count; i++)
             {
-                addToken(info.start[i], new Vector2Int(0,i));
+                addToken(info.start[i]);
             }
         }
         renderer.sprite = Resources.Load<Sprite>("item/" + name);
@@ -43,23 +43,15 @@ public class TokenableItem : MonoBehaviour
 
    
 
-    public void addToken(string tokenName, Vector2Int index)
+    public void addToken(string tokenName)
     {
-        //todo should have token position 
-        Token token = new Token(tokenName, index,this);
-        tokens.Add(token);
+        tokens.Add(tokenName);
 
         updateTokens();
     }
 
-    public void addToken(Token token)
-    {
-        tokens.Add(token);
 
-        updateTokens();
-    }
-
-    public void removeToken(Token token)
+    public void removeToken(string token)
     {
         tokens.Remove(token);
         updateTokens();
@@ -92,7 +84,7 @@ public class TokenableItem : MonoBehaviour
             else if (generatableCombination.generateToken != "")
             {
                 tokens.Clear();
-                addToken(generatableCombination.generateToken, new Vector2Int(0, 0));
+                addToken(generatableCombination.generateToken);
             }
             else if (generatableCombination.generateInventory != "")
             {
@@ -144,7 +136,7 @@ public class TokenableItem : MonoBehaviour
            // List<string> properties = tokens.Select(o => o.name).ToList();
             foreach (var t in tokens)
             {
-                if (!combTokens.Contains(t.name))
+                if (!combTokens.Contains(t))
                 {
                     succeed = false;
                     break;

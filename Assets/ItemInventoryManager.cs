@@ -20,27 +20,17 @@ public class ItemInventoryManager : Singleton<ItemInventoryManager>
 
     public bool hasTokenableItem(string itemName)
     {
-        foreach (var t in items)
-        {
-            if (t != null && t == itemName)
-            {
-                return true;
-            }
-        }
-        return false;
+        return items.Contains(itemName);
     }
 
     public void removeTokenableItem(string itemName)
     {
-        foreach (var t in items)
+        if (!items.Contains(itemName))
         {
-            if (t != null && t == itemName)
-            {
-                items.Remove(t);
-                EventPool.Trigger("updateTokenableItemInventory");
-                return;
-            }
+
+            Debug.Log("remove item not exsit " + itemName);
         }
-        Debug.Log("remove item not exsit " + itemName);
+        items.Remove(itemName);
+        EventPool.Trigger("updateTokenableItemInventory");
     }
 }

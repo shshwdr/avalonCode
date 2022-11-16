@@ -1,5 +1,5 @@
 ﻿item,token,itemChange,generateToken,destroyCombine,generateInventory
-dough,hot,,,1,bread
+dough,hot,,,,bread
 oven,flammable,,hot,,
 rock,fragile,gravel,,1,
 gravel,careful,,,,key
