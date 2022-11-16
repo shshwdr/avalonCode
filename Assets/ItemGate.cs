@@ -15,6 +15,7 @@ public class ItemGate : MonoBehaviour,IStatable
             Destroy( GetComponentInChildren<Talkable>().gameObject);
             renderer.sprite = openGateSprite;
             collider.enabled = false;
+            ItemInventoryManager.Instance.removeTokenableItem("key");
         }
     }
 
