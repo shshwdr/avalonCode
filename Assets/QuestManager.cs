@@ -137,6 +137,9 @@ public class QuestManager : InfoManager<QuestManager, QuestInfo>
                 {
                     case "none":
                         break;
+                    case "special":
+                        isFinished = false;
+                        break;
                     case "hasToken":
                         if (!TokenInventoryManager.Instance.hasToken(info.typeCategory))
                         {

@@ -4648,12 +4648,6 @@ MonoBehaviour:
       - originConversationID: 5
         originDialogueID: 0
         destinationConversationID: 5
-        destinationDialogueID: 16
-        isConnector: 0
-        priority: 2
-      - originConversationID: 5
-        originDialogueID: 0
-        destinationConversationID: 5
         destinationDialogueID: 17
         isConnector: 0
         priority: 2
@@ -5791,8 +5785,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 440.80115
-        y: 159.6504
+        x: 391.54745
+        y: 222.33694
         width: 160
         height: 30
     - id: 16
@@ -5860,7 +5854,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 783.0241
+        x: 784.51666
         y: 26.20581
         width: 160
         height: 30
@@ -5929,8 +5923,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 956.8655
-        y: 126.7164
+        x: 953.88043
+        y: 78.955215
         width: 160
         height: 30
     - id: 18
@@ -6535,14 +6529,14 @@ MonoBehaviour:
         destinationDialogueID: 2
         isConnector: 0
         priority: 2
-      conditionsString: 
-      userScript: 
+      conditionsString: IsQuestActive("checkTheThing")
+      userScript: SetToReturnToNPC("checkTheThing")
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 30
+        x: 31
         y: 70
         width: 160
         height: 30
