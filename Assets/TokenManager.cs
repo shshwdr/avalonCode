@@ -7,6 +7,7 @@ using UnityEngine;
 public class TokenInfo : BaseInfo
 {
     public Sprite image { get { return Resources.Load<Sprite>("token/" + name); } }
+    public string state;
 }
 public class TokenManager : InfoManager<TokenManager,TokenInfo>
 {

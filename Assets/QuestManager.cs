@@ -160,6 +160,21 @@ public class QuestManager : InfoManager<QuestManager, QuestInfo>
                         //    isFinished = false;
                         //}
                         break;
+                    case "hasItemOnGround":
+                        bool found = false;
+                        foreach (var item in GameObject.FindObjectsOfType<TokenableItem>())
+                        {
+                            if (item.name == info.typeCategory)
+                            {
+                                found = true;
+                            }
+                        }
+
+                        if (!found)
+                        {
+                            isFinished = false;
+                        }
+                        break;
                     case "checkState":
                         foreach (var item in GameObject.FindObjectsOfType<StateItem>())
                         {

@@ -3491,7 +3491,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 665.842, y: 28.125}
+    canvasScrollPosition: {x: 9.592346, y: 29.6875}
     canvasZoom: 0.64000034
   - id: 4
     fields:
@@ -4631,6 +4631,18 @@ MonoBehaviour:
         destinationDialogueID: 1
         isConnector: 0
         priority: 2
+      - originConversationID: 5
+        originDialogueID: 0
+        destinationConversationID: 5
+        destinationDialogueID: 14
+        isConnector: 0
+        priority: 2
+      - originConversationID: 5
+        originDialogueID: 0
+        destinationConversationID: 5
+        destinationDialogueID: 15
+        isConnector: 0
+        priority: 2
       conditionsString: 
       userScript: 
       onExecute:
@@ -4709,8 +4721,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 24.936707
-        y: 67.46835
+        x: 29.947365
+        y: 79.310455
         width: 160
         height: 30
     - id: 2
@@ -5613,6 +5625,148 @@ MonoBehaviour:
         serializedVersion: 2
         x: 30
         y: 670
+        width: 160
+        height: 30
+    - id: 14
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Pictures
+        value: '[]'
+        type: 3
+        typeString: CustomFieldType_Files
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 8
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 6
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: Any luck with the exploration? Be Careful.
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Parenthetical
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Audio Files
+        value: '[]'
+        type: 3
+        typeString: CustomFieldType_Files
+      - title: Video File
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: es
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      conversationID: 5
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: IsQuestActive("checkTheThing")
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 386.52618
+        y: 68.684204
+        width: 160
+        height: 30
+    - id: 15
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Pictures
+        value: '[]'
+        type: 3
+        typeString: CustomFieldType_Files
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 6
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 8
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: "Hey Woody, mhh\u2026 about this\u2026 monster\u2026"
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Parenthetical
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Audio Files
+        value: '[]'
+        type: 3
+        typeString: CustomFieldType_Files
+      - title: Video File
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: SetActive(bluntAxe,true);
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: es
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      conversationID: 5
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: IsQuestToBeFinish("checkTheThing")
+      userScript: 'FinishQuest("checkTheThing");
+
+        StartQuest("brokenAxe");
+
+'
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 627.3682
+        y: 58.157898
         width: 160
         height: 30
     entryGroups: []

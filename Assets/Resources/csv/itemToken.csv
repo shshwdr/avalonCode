@@ -3,3 +3,4 @@ dough,hot,,,,bread
 oven,flammable,,hot,,
 rock,fragile,gravel,,1,
 gravel,careful,,,,key
+bluntAxe,sharp|rusty,axe,,1,

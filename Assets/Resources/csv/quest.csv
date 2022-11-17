@@ -4,4 +4,6 @@ checkOven,Check the oven,,baker,,none,hasToken,hot,
 cookBread,Cook the bread,,baker,,none,hasItem,bread,
 talkToWoody,Talk to Woody,jody,woody,,,none,,
 getKey,Get the key from under the rock,,,,none,hasItem,key,
-openGate,Open the gate,,,,none,checkState,gate,1
+openGate,Open the gate,,,,none,none,,
+checkTheThing,The thing in the thicket,,woody,,none,none,,
+brokenAxe,Fix Woodies Axe,,woody,,none,hasItemOnGround,axe,

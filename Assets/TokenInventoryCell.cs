@@ -11,6 +11,8 @@ public class TokenInventoryCell : MonoBehaviour
 
     Button button;
 
+    public GameObject fixedFrame;
+
     private void Start()
     {
 
@@ -52,8 +54,20 @@ public class TokenInventoryCell : MonoBehaviour
         }
         button.interactable = true;
         name = n;
+        var info = TokenManager.Instance.getInfo(name);
         isInventory = inv;
         renderer.sprite = Resources.Load<Sprite>("token/" + name);
+
+        if(info.state == "fixed")
+        {
+            fixedFrame.SetActive(true);
+            button.interactable = false;
+
+        }
+        else
+        {
+            fixedFrame.SetActive(false);
+        }
 
     }
 }

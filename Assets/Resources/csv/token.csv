@@ -1,6 +1,11 @@
-﻿name,title
-flammable,Flammable
-hot,Hot
-filling,Filling
-fragile,Fragile
-careful,Careful
+﻿name,title,state
+flammable,Flammable,
+hot,Hot,
+filling,Filling,
+fragile,Fragile,
+careful,Careful,
+sharp,Sharp,
+wet,Wet,
+shiny,Shiny,
+rusty,Rusty,fixed
+impressive,Impressive,

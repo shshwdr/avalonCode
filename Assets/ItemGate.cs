@@ -16,6 +16,7 @@ public class ItemGate : MonoBehaviour,IStatable
             renderer.sprite = openGateSprite;
             collider.enabled = false;
             ItemInventoryManager.Instance.removeTokenableItem("key");
+            QuestManager.Instance.finishQuest("openGate");
         }
     }
 
