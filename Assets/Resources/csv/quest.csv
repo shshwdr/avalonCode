@@ -1,9 +1,9 @@
-﻿name,title,startNPC,returnNPC,grantTitleRequest,grantQuestRequest,type,typeCategory,value
-findFlammable,Find something flammable,baker,baker,,,hasToken,flammable,
-checkOven,Check the oven,,baker,,none,hasToken,hot,
-cookBread,Cook the bread,,baker,,none,hasItem,bread,
-talkToWoody,Talk to Woody,jody,woody,,,none,,
-getKey,Get the key from under the rock,,,,none,hasItem,key,
-openGate,Open the gate,,,,none,none,,
-checkTheThing,The thing in the thicket,,woody,,none,none,,
-brokenAxe,Fix Woodies Axe,,woody,,none,hasItemOnGround,axe,
+﻿name,title,startNPC,returnNPC,grantTitleRequest,grantQuestRequest,type,typeCategory,value,serialQuestName
+findFlammable,Find something flammable,baker,baker,,,hasToken,flammable,,★ Ain’t no bread without an oven
+checkOven,Check the oven,,baker,,none,hasToken,hot,,★ Ain’t no bread without an oven
+cookBread,Cook the bread,,baker,,none,hasItem,bread,,★ Ain’t no bread without an oven
+talkToWoody,Talk to Woody,jody,woody,,,none,,,★ Enter at your own risk
+getKey,Get the key from under the rock,,,,none,hasItem,key,,★ Enter at your own risk
+openGate,Open the gate,,,,none,none,,,★ Enter at your own risk
+checkTheThing,The thing in the thicket,,woody,,none,none,,,★ The thing in the thicket
+brokenAxe,Fix Woodies Axe,woody,woody,,,hasItemOnGround,axe,,★ The broken axe

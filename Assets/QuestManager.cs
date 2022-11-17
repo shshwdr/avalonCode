@@ -28,6 +28,8 @@ public class QuestInfo
 {
     public string name;
     public string title;
+    public string serialQuestName;
+    
     public string returnNPC;
     public string startNPC; 
     public string activateNext;
@@ -250,16 +252,19 @@ public class QuestManager : InfoManager<QuestManager, QuestInfo>
             }
             if (isFinished)
             {
-                info.state = QuestState.returnToNPC;
-
-                var returnNPC = infoDict[info.name].returnNPC;
-                if (returnNPC != "")
-                {
-
-                    NPCManager.Instance.npcScriptDict[returnNPC].canFinishQuest();
-                }
-                DialogueLua.SetQuestField(info.name, "State", "returnToNPC");
+                setToReturnToNPC(info.name);
             }
+        }
+    }
+
+    public void setToReturnToNPC(string name) {
+        var info = infoDict[name];
+info.state = QuestState.returnToNPC;
+        var returnNPC = infoDict[info.name].returnNPC;
+        if (returnNPC != "")
+        {
+
+            NPCManager.Instance.npcScriptDict[returnNPC].canFinishQuest();
         }
     }
 

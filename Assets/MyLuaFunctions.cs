@@ -14,11 +14,12 @@ public class MyLuaFunctions : Singleton<MyLuaFunctions>
 
         //quest related
         Lua.RegisterFunction("StartQuest", this, SymbolExtensions.GetMethodInfo(() => StartQuest(string.Empty)));
+        Lua.RegisterFunction("SetToReturnToNPC", this, SymbolExtensions.GetMethodInfo(() => SetToReturnToNPC(string.Empty)));
         Lua.RegisterFunction("FinishQuest", this, SymbolExtensions.GetMethodInfo(() => FinishQuest(string.Empty)));
         Lua.RegisterFunction("IsQuestToBeStart", this, SymbolExtensions.GetMethodInfo(() => IsQuestToBeStart(string.Empty)));
         Lua.RegisterFunction("IsQuestActive", this, SymbolExtensions.GetMethodInfo(() => IsQuestActive(string.Empty)));
         Lua.RegisterFunction("IsQuestToBeFinish", this, SymbolExtensions.GetMethodInfo(() => IsQuestToBeFinish(string.Empty)));
-        Lua.RegisterFunction("IsQuestFinished", this, SymbolExtensions.GetMethodInfo(() => IsQuestFinished(string.Empty)));
+        Lua.RegisterFunction("IsQuestFinished", this, SymbolExtensions.GetMethodInfo(() => IsQuestFinished(string.Empty))); 
 
         //show grid
 
@@ -100,6 +101,12 @@ public class MyLuaFunctions : Singleton<MyLuaFunctions>
     {
         QuestManager.Instance.activateQuest(name);
     }
+
+    public void SetToReturnToNPC(string name)
+    {
+        QuestManager.Instance.setToReturnToNPC(name);
+    }
+    
 
     public void FinishQuest(string name)
     {
