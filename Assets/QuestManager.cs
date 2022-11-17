@@ -79,6 +79,7 @@ public class QuestManager : InfoManager<QuestManager, QuestInfo>
     public void updateQuestFromNoWhere()
     {
 
+        updateGrantQuest();
         updateQuestState();
         updateGrantQuest();
 
@@ -270,6 +271,7 @@ info.state = QuestState.returnToNPC;
             NPCManager.Instance.npcScriptDict[returnNPC].canFinishQuest();
         }
     }
+
 
     public void updateGrantQuest()
     {

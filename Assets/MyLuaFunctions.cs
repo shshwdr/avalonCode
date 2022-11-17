@@ -14,6 +14,7 @@ public class MyLuaFunctions : Singleton<MyLuaFunctions>
 
         //quest related
         Lua.RegisterFunction("StartQuest", this, SymbolExtensions.GetMethodInfo(() => StartQuest(string.Empty)));
+        Lua.RegisterFunction("GrantQuest", this, SymbolExtensions.GetMethodInfo(() => GrantQuest(string.Empty)));
         Lua.RegisterFunction("SetToReturnToNPC", this, SymbolExtensions.GetMethodInfo(() => SetToReturnToNPC(string.Empty)));
         Lua.RegisterFunction("FinishQuest", this, SymbolExtensions.GetMethodInfo(() => FinishQuest(string.Empty)));
         Lua.RegisterFunction("IsQuestToBeStart", this, SymbolExtensions.GetMethodInfo(() => IsQuestToBeStart(string.Empty)));
@@ -100,6 +101,11 @@ public class MyLuaFunctions : Singleton<MyLuaFunctions>
     public void StartQuest(string name)
     {
         QuestManager.Instance.activateQuest(name);
+    }
+    public void GrantQuest(string name)
+    {
+        QuestManager.Instance.grantQuest(name);
+        QuestManager.Instance.updateQuestFromNoWhere();
     }
 
     public void SetToReturnToNPC(string name)
