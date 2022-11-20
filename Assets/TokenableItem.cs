@@ -72,6 +72,8 @@ public class TokenableItem : MonoBehaviour
     {
         if (generatableCombination != null)
         {
+
+            tokens.Clear();
             bool shouldDestory = generatableCombination.shouldDestoryWhenCombine;
             if (generatableCombination.itemChange != "")
             {
@@ -94,7 +96,6 @@ public class TokenableItem : MonoBehaviour
                 Debug.LogError("no item change and no token generation for " + generatableCombination.item);
             }
 
-            tokens.Clear();
             if (shouldDestory)
             {
                 Destroy(gameObject);

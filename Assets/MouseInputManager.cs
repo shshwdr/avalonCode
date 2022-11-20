@@ -126,11 +126,11 @@ public class MouseInputManager : Singleton<MouseInputManager>
                 }
             }
 
-            if (item)
-            {
-                selectItem(item);
-                return;
-            }
+            //if (item)
+            //{
+            //    selectItem(item);
+            //    return;
+            //}
             selectItem(null);
         }
         //return;
