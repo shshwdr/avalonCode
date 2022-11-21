@@ -17,7 +17,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4869226550548613934, guid: ce4f5fe5bdbd4bb4ebe989dbf2845a62, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -7.1
       objectReference: {fileID: 0}
     - target: {fileID: 4869226550548613934, guid: ce4f5fe5bdbd4bb4ebe989dbf2845a62, type: 3}
       propertyPath: m_LocalPosition.y
@@ -25,7 +25,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4869226550548613934, guid: ce4f5fe5bdbd4bb4ebe989dbf2845a62, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -10.67
       objectReference: {fileID: 0}
     - target: {fileID: 4869226550548613934, guid: ce4f5fe5bdbd4bb4ebe989dbf2845a62, type: 3}
       propertyPath: m_LocalRotation.w
@@ -59,7 +59,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: player
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8372556649939377554, guid: ce4f5fe5bdbd4bb4ebe989dbf2845a62, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ce4f5fe5bdbd4bb4ebe989dbf2845a62, type: 3}
 --- !u!1 &9221659816825478326 stripped
 GameObject:
@@ -96,4 +97,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47705ffbd4c7e8c43b3099da9f1029e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 10
+--- !u!136 &1820497505
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9221659816825478326}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.67
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: -0.18, y: 0, z: 0}
+--- !u!114 &1820497506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9221659816825478326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fd5fb435c0007f4d90b3bf6819a2c6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPickingUp: 0
+  handRange: 0.5
+  rakeRange: 1.5
