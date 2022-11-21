@@ -7,3 +7,9 @@ getKey,Get the key from under the rock,,,,none,hasItem,key,,★ Enter at your ow
 openGate,Open the gate,,,,none,special,,,★ Enter at your own risk
 checkTheThing,Check the thing in the thicket,,woody,,none,special,,,★ The thing in the thicket
 brokenAxe,Fix Woodies Axe,,woody,,none,hasItemOnGround,axe,,★ The broken axe
+talkToWoodyForBridge,Talk to Woody,jody,woody,,openGate,none,,,★ You shall not pass!
+makeBridgeNotShattered,Life Bridge,,woody,,none,,,,★ You shall not pass!
+fixBridge,Fix Bridge,,woody,,none,,,,★ You shall not pass!
+bakeFruitBread,Bake Fruit Bread,jody,jody,,none,hasItem,fruitBread,,★ Memories of the past
+getColor,Prepare the palette,jean,jean,,none,,,,★ Nature is a great artist
+paint,Paint!,,jean,,none,,,,★ Nature is a great artist
