@@ -10,6 +10,7 @@ public class TokenInventoryCell : MonoBehaviour
     bool isInventory = false;
 
     Button button;
+    public Text titleLabel;
 
     public GameObject fixedFrame;
 
@@ -45,6 +46,7 @@ public class TokenInventoryCell : MonoBehaviour
         if (n == "")
         {
             renderer.sprite = null;
+            titleLabel.text = "";
             if (button)
             {
 
@@ -57,8 +59,8 @@ public class TokenInventoryCell : MonoBehaviour
         var info = TokenManager.Instance.getInfo(name);
         isInventory = inv;
         renderer.sprite = Resources.Load<Sprite>("token/" + name);
-
-        if(info.state == "fixed")
+        titleLabel.text = info.title;
+        if (info.state == "fixed")
         {
             fixedFrame.SetActive(true);
             button.interactable = false;
