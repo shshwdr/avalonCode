@@ -116,25 +116,25 @@ Material:
     - _Blend: 0
     - _BumpScale: 1
     - _CAUSTICS: 1
-    - _CausticsCutout: 0.9
+    - _CausticsCutout: 0.85
     - _CausticsScale: 0.1
     - _CausticsSpeed: 0.05
-    - _Caustics_Intensity: 0.384
+    - _Caustics_Intensity: 0.05
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
     - _Cull: 2
     - _Cutoff: 0.5
-    - _Depth: 100
+    - _Depth: 17.4
     - _DepthFalloff: 4.9
-    - _Depth_Falloff: 0.1
+    - _Depth_Falloff: 4.9
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
     - _DistortionScale: 0.2
     - _DistortionSpeed: 0.258
     - _DistortionStrength: 0.0058
-    - _Distortion_Scale: 0.3
-    - _Distortion_Speed: 0.0165
-    - _Distortion_Strength: 0.0135
+    - _Distortion_Scale: 1
+    - _Distortion_Speed: 0.065
+    - _Distortion_Strength: 0.016
     - _DstBlend: 0
     - _ENABLE_CAUSTICS: 1
     - _ENABLE_OPAQUE_DISTORTIONS: 1
@@ -151,17 +151,17 @@ Material:
     - _FoamShoreWidth: 0.268
     - _FoamSpeed: 0.165
     - _FoamTiling: 1.25
-    - _Foam_Cutout: 0.105
+    - _Foam_Cutout: 0.086
     - _Foam_Cutout_Distortion_Scale: 4
     - _Foam_Cutout_Distortion_Strength: 0
-    - _Foam_Depth: 85.5
+    - _Foam_Depth: 66.1
     - _Foam_Distortion_Scale: 1
-    - _Foam_Distortion_Strength: 0.29
+    - _Foam_Distortion_Strength: 0.565
     - _Foam_Falloff: 100
-    - _Foam_Intensity: 1
-    - _Foam_Shore_Width: 0.164
-    - _Foam_Speed: 0.165
-    - _Foam_Tiling: 1.2
+    - _Foam_Intensity: 0.129
+    - _Foam_Shore_Width: 0.5
+    - _Foam_Speed: 0.084
+    - _Foam_Tiling: 0.1
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
@@ -180,17 +180,17 @@ Material:
     - _WAVES: 1
     - _WaveSpeed: 3
     - _WaveStrength: 0.192
-    - _Wave_Direction: 32
-    - _Wave_Frequency: 0.78
-    - _Wave_Speed: 2.8
-    - _Wave_Strength: 0.155
+    - _Wave_Direction: -90
+    - _Wave_Frequency: 2.13
+    - _Wave_Speed: 1.6
+    - _Wave_Strength: 0.03
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Deep_Color: {r: 0.12409639, g: 0, b: 1, a: 1}
+    - _Deep_Color: {r: 0.15294117, g: 0.43425074, b: 0.5647059, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Shallow_Color: {r: 0.21226418, g: 0.7528672, b: 1, a: 1}
+    - _Shallow_Color: {r: 0.12559626, g: 0.49875957, b: 0.5943396, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
