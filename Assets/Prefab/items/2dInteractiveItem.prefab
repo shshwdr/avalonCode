@@ -7,6 +7,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4869226550129663991, guid: ce4f5fe5bdbd4bb4ebe989dbf2845a62, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4869226550129663991, guid: ce4f5fe5bdbd4bb4ebe989dbf2845a62, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4869226550129663991, guid: ce4f5fe5bdbd4bb4ebe989dbf2845a62, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1609626089
+      objectReference: {fileID: 0}
     - target: {fileID: 4869226550548613934, guid: ce4f5fe5bdbd4bb4ebe989dbf2845a62, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -53,7 +65,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4869226550548613935, guid: ce4f5fe5bdbd4bb4ebe989dbf2845a62, type: 3}
       propertyPath: m_Name
-      value: 2dStateItem
+      value: 2dInteractiveItem
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce4f5fe5bdbd4bb4ebe989dbf2845a62, type: 3}

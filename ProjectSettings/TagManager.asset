@@ -42,6 +42,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: 2dItem
+    uniqueID: 2685341207
+    locked: 0
   - name: Water
     uniqueID: 3314665913
     locked: 0
