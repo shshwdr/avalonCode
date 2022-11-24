@@ -1274,6 +1274,7 @@ GameObject:
   m_Component:
   - component: {fileID: 386431643}
   - component: {fileID: 386431644}
+  - component: {fileID: 386431645}
   m_Layer: 0
   m_Name: tree-1
   m_TagString: Untagged
@@ -1348,6 +1349,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!65 &386431645
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 386431642}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.58, y: 7.01, z: 0.88}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &388009852
 GameObject:
   m_ObjectHideFlags: 0
@@ -1848,8 +1862,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 571767352}
-  m_LocalRotation: {x: 0.24691589, y: 0.018892435, z: -0.0048148707, w: 0.9688408}
-  m_LocalPosition: {x: -10.871812, y: 48.386997, z: -93.15996}
+  m_LocalRotation: {x: 0.2469159, y: 0.018892424, z: -0.004814868, w: 0.9688408}
+  m_LocalPosition: {x: -15.2318125, y: 48.386997, z: -88.469955}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2066,6 +2080,7 @@ GameObject:
   m_Component:
   - component: {fileID: 733021572}
   - component: {fileID: 733021573}
+  - component: {fileID: 733021574}
   m_Layer: 0
   m_Name: tree-6
   m_TagString: Untagged
@@ -2140,6 +2155,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!65 &733021574
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 733021571}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.9, y: 6.02, z: 1.04}
+  m_Center: {x: 0.29, y: 0, z: 0.28}
 --- !u!1 &850238901
 GameObject:
   m_ObjectHideFlags: 0
@@ -2616,8 +2644,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.24691589, y: 0.018892435, z: -0.0048148707, w: 0.9688408}
-  m_LocalPosition: {x: -10.871812, y: 48.386997, z: -93.15996}
+  m_LocalRotation: {x: 0.2469159, y: 0.018892424, z: -0.004814868, w: 0.9688408}
+  m_LocalPosition: {x: -15.2318125, y: 48.386997, z: -88.469955}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2974,6 +3002,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1281421926}
   - component: {fileID: 1281421927}
+  - component: {fileID: 1281421928}
   m_Layer: 0
   m_Name: tree-2
   m_TagString: Untagged
@@ -3048,6 +3077,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!65 &1281421928
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1281421925}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.31, y: 6.81, z: 1.08}
+  m_Center: {x: 0, y: 0, z: 0.28}
 --- !u!1 &1357871430
 GameObject:
   m_ObjectHideFlags: 0
@@ -8547,7 +8589,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9221659816825478327, guid: 2719b390df7d2af4c97dd3c69573030a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.49
+      value: -11.85
       objectReference: {fileID: 0}
     - target: {fileID: 9221659816825478327, guid: 2719b390df7d2af4c97dd3c69573030a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -8555,7 +8597,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9221659816825478327, guid: 2719b390df7d2af4c97dd3c69573030a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -6.48
+      value: -1.79
       objectReference: {fileID: 0}
     - target: {fileID: 9221659816825478327, guid: 2719b390df7d2af4c97dd3c69573030a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -13577,6 +13619,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1616103170}
   - component: {fileID: 1616103171}
+  - component: {fileID: 1616103172}
   m_Layer: 0
   m_Name: tree-5
   m_TagString: Untagged
@@ -13592,7 +13635,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1616103169}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.78, y: 9.48, z: 23.94}
+  m_LocalPosition: {x: 3.9, y: 9.48, z: 23.94}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13651,6 +13694,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!65 &1616103172
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1616103169}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.61, y: 7.19, z: 1.07}
+  m_Center: {x: 0, y: 0, z: 0.17}
 --- !u!1 &1661323555
 GameObject:
   m_ObjectHideFlags: 0
@@ -13767,7 +13823,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4563787416862439084, guid: 2c8fe3fc5c47fb6479981c877992d92e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.03
+      value: 15.88
+      objectReference: {fileID: 0}
+    - target: {fileID: 4563787416862439084, guid: 2c8fe3fc5c47fb6479981c877992d92e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -7.81
       objectReference: {fileID: 0}
     - target: {fileID: 4563787416924289893, guid: 2c8fe3fc5c47fb6479981c877992d92e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -14124,11 +14184,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2998892022068699033, guid: 3ffac69bb9bcd524cb492fe7c51d6a59, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.15
+      value: 18.52
       objectReference: {fileID: 0}
     - target: {fileID: 2998892022068699033, guid: 3ffac69bb9bcd524cb492fe7c51d6a59, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -12.48
+      value: -9.8
       objectReference: {fileID: 0}
     - target: {fileID: 2998892022425073672, guid: 3ffac69bb9bcd524cb492fe7c51d6a59, type: 3}
       propertyPath: m_LocalPosition.x
@@ -14837,6 +14897,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1876852481}
   - component: {fileID: 1876852482}
+  - component: {fileID: 1876852483}
   m_Layer: 0
   m_Name: tree-3
   m_TagString: Untagged
@@ -14911,6 +14972,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!65 &1876852483
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1876852480}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.95, y: 6.23, z: 0.86}
+  m_Center: {x: 0, y: 0, z: 0.43}
 --- !u!1 &1913869414
 GameObject:
   m_ObjectHideFlags: 3
