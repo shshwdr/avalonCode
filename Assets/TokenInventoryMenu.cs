@@ -22,11 +22,12 @@ public class TokenInventoryMenu : MonoBehaviour
         int i = 0;
         for (; i < TokenInventoryManager.Instance.tokens.Count; i++)
         {
+            emptyInventoryCells[i].gameObject.SetActive(true);
             emptyInventoryCells[i].init(TokenInventoryManager.Instance.tokens[i],true);
         }
         for (; i < emptyInventoryCells.Length; i++)
         {
-            emptyInventoryCells[i].init("", true);
+            emptyInventoryCells[i].gameObject.SetActive(false);
         }
     }
 }

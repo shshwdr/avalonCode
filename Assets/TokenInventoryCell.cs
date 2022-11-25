@@ -59,7 +59,7 @@ public class TokenInventoryCell : MonoBehaviour
         name = n;
         var info = TokenManager.Instance.getInfo(name);
         isInventory = inv;
-        renderer.sprite = Resources.Load<Sprite>("token/" + name);
+        renderer.sprite = info.image;
         titleLabel.text = info.title;
         if (info.state == "fixed")
         {
