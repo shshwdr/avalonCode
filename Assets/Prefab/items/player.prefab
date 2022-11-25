@@ -23,6 +23,10 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -1609626089
       objectReference: {fileID: 0}
+    - target: {fileID: 4869226550129663991, guid: ce4f5fe5bdbd4bb4ebe989dbf2845a62, type: 3}
+      propertyPath: m_SpriteSortPoint
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4869226550548613934, guid: ce4f5fe5bdbd4bb4ebe989dbf2845a62, type: 3}
       propertyPath: m_RootOrder
       value: 0

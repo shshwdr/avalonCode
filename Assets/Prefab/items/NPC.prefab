@@ -9,7 +9,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1304512154, guid: 45ac2be2b649cf04ca29c38451e98b3f, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1304512154, guid: 45ac2be2b649cf04ca29c38451e98b3f, type: 3}
+      propertyPath: m_Center.y
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 4022339025159586357, guid: 45ac2be2b649cf04ca29c38451e98b3f, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4586104956589717208, guid: 45ac2be2b649cf04ca29c38451e98b3f, type: 3}
       propertyPath: m_RootOrder
