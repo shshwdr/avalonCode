@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class QuestCell : MonoBehaviour
 {
-    public Text text;
+    public QuestTextCellCurrent currentCell;
     public Text title;
     // Start is called before the first frame update
     void Start()
@@ -21,11 +21,19 @@ public class QuestCell : MonoBehaviour
 
     public void updateCell(QuestInfo info)
     {
-        text.text = info.title;
+        var currentText = info.title;
         if(info.state == QuestState.returnToNPC)
         {
             //    text.color = Color.green;
-            text.text = "Talk to " + info.returnNPC;
+            var s = "Talk to " + info.returnNPC;
+            currentText = s;
+            currentCell.GetComponentInChildren<Text>().text = currentText;
+            //var strikethrough = "";
+            //foreach (char c in s)
+            //{
+            //    strikethrough = strikethrough + c + '\u0336';
+            //}
+            //text.text = strikethrough;
         }
         //else
         //{
