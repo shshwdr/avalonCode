@@ -23,6 +23,18 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4586104956589717208, guid: 45ac2be2b649cf04ca29c38451e98b3f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.62
+      objectReference: {fileID: 0}
+    - target: {fileID: 6077372807012831623, guid: 45ac2be2b649cf04ca29c38451e98b3f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6562198936115197187, guid: 45ac2be2b649cf04ca29c38451e98b3f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6785550606571667908, guid: 45ac2be2b649cf04ca29c38451e98b3f, type: 3}
       propertyPath: m_Enabled
       value: 0

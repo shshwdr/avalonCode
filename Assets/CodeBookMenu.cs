@@ -64,11 +64,12 @@ public class CodeBookMenu : MonoBehaviour
             int i = 0;
             for (; i < selectItem.tokens.Count; i++)
             {
+                emptyGridCells[i].gameObject.SetActive(true);
                 emptyGridCells[i].init(selectItem.tokens[i],false);
             }
             for (; i < emptyGridCells.Length; i++)
             {
-                emptyGridCells[i].init("", false);
+                emptyGridCells[i].gameObject.SetActive(false);
             }
 
         } 

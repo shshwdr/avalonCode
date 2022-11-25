@@ -41,6 +41,7 @@ public class TokenInventoryCell : MonoBehaviour
 
     public void init(string n, bool inv)
     {
+        button = GetComponentInChildren<Button>();
         //button = GetComponentInChildren<Button>();
         //button.onClick.RemoveAllListeners();
         if (n == "")

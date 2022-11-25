@@ -50,7 +50,7 @@ public class NPC : MonoBehaviour
     {
     //    talkable = GetComponent<Talkable>();
     //    pathFinding = GetComponent<NPCPathFinding>();
-    //    hideAllQuestMarkers();
+        hideAllQuestMarkers();
     //    info = NPCManager.Instance.npcDict[name];
         NPCManager.Instance.npcScriptDict[GetComponent<TokenableItem>().name] = this;
     //    isActived = info.isActived;
