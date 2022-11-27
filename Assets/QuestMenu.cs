@@ -35,6 +35,10 @@ public class QuestMenu : MonoBehaviour
         int i = 0;
         foreach (var info in QuestManager.Instance.activeQuests())
         {
+            if (i >= cells.Length)
+            {
+                Debug.LogError("out of index");
+            }
             QuestCell cell = cells[i];
             cell.updateCell(info);
             cell.gameObject.SetActive(true);

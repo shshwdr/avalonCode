@@ -22,7 +22,7 @@ public class Changeable : InteractiveItem
 
     public override void prepareUI()
     {
-        interactiveText.text = "Check " + itemInfo.title + "\n(space)";
+        //interactiveText.text = "Check " + itemInfo.title + "\n(space)";
     }
 
     protected override bool canShowInteractUI()

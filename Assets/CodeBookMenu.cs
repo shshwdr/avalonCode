@@ -41,7 +41,12 @@ public class CodeBookMenu : MonoBehaviour
         MouseInputManager.Instance.selectedItem.generate();
     }
 
-
+    bool isOn;
+    IEnumerator turnOnView()
+    {
+        yield return new WaitForSeconds(0.2f);
+        isOn = true;
+    }
     void selectInteractiveItem()
     {
 
@@ -72,13 +77,13 @@ public class CodeBookMenu : MonoBehaviour
                 emptyGridCells[i].gameObject.SetActive(false);
             }
 
+            StartCoroutine(turnOnView());
         } 
         else
         {
 
             codeBookOB.SetActive(false);
         }
-
     }
 
 
@@ -111,6 +116,11 @@ public class CodeBookMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow)
+            || Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.Space)) && isOn)
+        {
+            MouseInputManager.Instance.selectItem(null);
+            isOn = false;
+        }
     }
 }

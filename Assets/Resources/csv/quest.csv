@@ -10,6 +10,6 @@ brokenAxe,Fix Woodies Axe,,woody,,none,hasItemOnGround,axe,,★ The broken axe
 talkToWoodyForBridge,Talk to Woody,jody,woody,,openGate,none,,,★ You shall not pass!
 makeBridgeNotShattered,Life Bridge,,woody,,none,,,,★ You shall not pass!
 fixBridge,Fix Bridge,,woody,,none,,,,★ You shall not pass!
-bakeFruitBread,Bake Fruit Bread,jody,jody,,none,hasItem,fruitBread,,★ Memories of the past
-getColor,Prepare the palette,jean,jean,,none,,,,★ Nature is a great artist
+bakeFruitBread,Bake Fruit Bread,jody,jody,,openGate,hasItem,fruitBread,,★ Memories of the past
+getColor,Prepare the palette,jean,jean,,openGate,,,,★ Nature is a great artist
 paint,Paint!,,jean,,none,,,,★ Nature is a great artist

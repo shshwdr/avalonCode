@@ -16,7 +16,7 @@ public class ItemInventoryMenu : MonoBehaviour
         emptyInventoryCells = GetComponentsInChildren<ItemInventoryCell>(true);
         inventoryChange();
         panel.SetActive(false);
-        transform.position = Vector3.zero;
+        //transform.position = Vector3.zero;
     }
 
     public void inventoryChange()
