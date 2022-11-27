@@ -169,7 +169,7 @@ MonoBehaviour:
       value: Bert the Baker
       type: 0
       typeString: 
-    portrait: {fileID: 2800000, guid: 4ce69e6b4ab8ccf40ac3dc2647609ecf, type: 3}
+    portrait: {fileID: 2800000, guid: b20ea0dad83ce774e86cbf9c5da9c3b1, type: 3}
     spritePortrait: {fileID: 0}
     alternatePortraits: []
     spritePortraits: []
