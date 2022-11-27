@@ -3667,6 +3667,18 @@ MonoBehaviour:
         destinationDialogueID: 26
         isConnector: 0
         priority: 2
+      - originConversationID: 4
+        originDialogueID: 0
+        destinationConversationID: 4
+        destinationDialogueID: 27
+        isConnector: 0
+        priority: 2
+      - originConversationID: 4
+        originDialogueID: 0
+        destinationConversationID: 4
+        destinationDialogueID: 28
+        isConnector: 0
+        priority: 2
       conditionsString: 
       userScript: 
       onExecute:
@@ -4709,13 +4721,7 @@ MonoBehaviour:
       delaySimStatus: 0
       falseConditionAction: Block
       conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 4
-        originDialogueID: 14
-        destinationConversationID: 4
-        destinationDialogueID: 15
-        isConnector: 0
-        priority: 2
+      outgoingLinks: []
       conditionsString: IsQuestToBeStart("talkToWoodyForBridge")
       userScript: StartQuest("talkToWoodyForBridge");
       onExecute:
@@ -4799,8 +4805,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 644.92505
-        y: 114.02985
+        x: 646.635
+        y: 219.91205
         width: 160
         height: 30
     - id: 16
@@ -4875,8 +4881,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 644.92505
-        y: 164.02985
+        x: 641.9839
+        y: 269.91205
         width: 160
         height: 30
     - id: 17
@@ -4950,8 +4956,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 644.92505
-        y: 214.02985
+        x: 641.9839
+        y: 319.91205
         width: 160
         height: 30
     - id: 18
@@ -5026,8 +5032,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 644.92505
-        y: 264.02985
+        x: 641.9839
+        y: 369.91205
         width: 160
         height: 30
     - id: 19
@@ -5102,8 +5108,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 644.92505
-        y: 314.02985
+        x: 641.9839
+        y: 419.91205
         width: 160
         height: 30
     - id: 20
@@ -5178,8 +5184,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 644.92505
-        y: 364.02985
+        x: 641.9839
+        y: 469.91205
         width: 160
         height: 30
     - id: 21
@@ -5253,8 +5259,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 644.92505
-        y: 414.02985
+        x: 641.9839
+        y: 519.91205
         width: 160
         height: 30
     - id: 22
@@ -5329,8 +5335,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 644.92505
-        y: 464.02985
+        x: 641.9839
+        y: 569.91187
         width: 160
         height: 30
     - id: 23
@@ -5398,8 +5404,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 644.92505
-        y: 514.02985
+        x: 641.9839
+        y: 619.91174
         width: 160
         height: 30
     - id: 24
@@ -5531,7 +5537,7 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: IsQuestToBeStart("talkToWoodyForBridge")
-      userScript: StartQuest("bakeFruitBread")
+      userScript: StartQuest("talkToWoodyForBridge")
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -5610,9 +5616,149 @@ MonoBehaviour:
         y: 137.18745
         width: 160
         height: 30
+    - id: 27
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Pictures
+        value: '[]'
+        type: 3
+        typeString: CustomFieldType_Files
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 7
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 6
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: still shaky and dangerous, Woody is not convinced
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Parenthetical
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Audio Files
+        value: '[]'
+        type: 3
+        typeString: CustomFieldType_Files
+      - title: Video File
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: es
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      conversationID: 4
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: IsQuestToBeFinish("makeBridgeNotShattered")
+      userScript: 'StartQuest("fixBridge");
+
+        FinishQuest("makeBridgeNotShattered")'
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 898.19336
+        y: 248.65912
+        width: 160
+        height: 30
+    - id: 28
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Pictures
+        value: '[]'
+        type: 3
+        typeString: CustomFieldType_Files
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 7
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 6
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: make it strong and sturdy -> Woody is happy
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Parenthetical
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Audio Files
+        value: '[]'
+        type: 3
+        typeString: CustomFieldType_Files
+      - title: Video File
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: es
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      conversationID: 4
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: IsQuestToBeFinish("fixBridge")
+      userScript: FinishQuest("fixBridge")
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 1174.1848
+        y: 230.46497
+        width: 160
+        height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 82.499664, y: 0}
-    canvasZoom: 0.64000034
+    canvasScrollPosition: {x: 131.78831, y: 27.135866}
+    canvasZoom: 0.46000046
   - id: 5
     fields:
     - title: Title
@@ -5774,7 +5920,7 @@ MonoBehaviour:
         destinationConversationID: 5
         destinationDialogueID: 42
         isConnector: 0
-        priority: 2
+        priority: 3
       conditionsString: 
       userScript: 
       onExecute:
@@ -8889,7 +9035,7 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: IsQuestActive("talkToWoodyForBridge")
+      conditionsString: IsQuestToBeFinish("talkToWoodyForBridge")
       userScript: 'FinishQuest("talkToWoodyForBridge");
 
         StartQuest("makeBridgeNotShattered")'
@@ -8903,8 +9049,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 10.909031}
-    canvasZoom: 0.5500004
+    canvasScrollPosition: {x: 0, y: 0}
+    canvasZoom: 0.46000046
   - id: 6
     fields:
     - title: Title
