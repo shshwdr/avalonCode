@@ -206,7 +206,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec770d2591a840c4badbfaac8a710bf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tokens: []
+  tokens:
+  - sturdy
+  - solid
+  - uplifting
+  - uplifting
 --- !u!114 &8807106706873330465
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -11,6 +11,7 @@ public class ItemTokenInfo
     public string generateToken;
     public string generateInventory;
     public int destroyCombine;
+    public int stateChange;
     public bool shouldDestoryWhenCombine { get { return destroyCombine == 1; } }
     //public bool IsOpposite { get { return isOpposite == 1; } }
 

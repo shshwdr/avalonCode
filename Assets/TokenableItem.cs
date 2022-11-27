@@ -77,8 +77,22 @@ public class TokenableItem : MonoBehaviour
             bool shouldDestory = generatableCombination.shouldDestoryWhenCombine;
             if (generatableCombination.itemChange != "")
             {
-                var go = Instantiate(ItemManager.Instance.interactiveItemPrefab, transform.position, transform.rotation, transform.parent);
-                go.GetComponent<TokenableItem>().name = generatableCombination.itemChange;
+
+                if (generatableCombination.stateChange != 0)
+                {
+                    GetComponent<StateItem>().setState(generatableCombination.stateChange);
+                }
+                if (shouldDestory)
+                {
+                    Destroy(gameObject);
+                    var go = Instantiate(ItemManager.Instance.interactiveItemPrefab, transform.position, transform.rotation, transform.parent);
+                    go.GetComponent<TokenableItem>().name = generatableCombination.itemChange;
+                }
+                else
+                {
+                    GetComponent<TokenableItem>().name = generatableCombination.itemChange;
+                    Start();
+                }
                 //todo check if need to destroy
                // Destroy(gameObject);
                 MouseInputManager.Instance.selectItem(null);
@@ -96,10 +110,10 @@ public class TokenableItem : MonoBehaviour
                 Debug.LogError("no item change and no token generation for " + generatableCombination.item);
             }
 
-            if (shouldDestory)
-            {
-                Destroy(gameObject);
-            }
+            //if (shouldDestory)
+            //{
+            //    Destroy(gameObject);
+            //}
         }
         else
         {

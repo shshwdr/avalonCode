@@ -15,22 +15,23 @@ public class ItemBridge : MonoBehaviour, IStatable
         if (GetComponent<StateItem>().state == 2)
         {
             action2();
-        }else if (GetComponent<StateItem>().state == 1)
-        {
-            action1();
         }
+        //}else if (GetComponent<StateItem>().state == 1)
+        //{
+        //    action1();
+        //}
     }
 
-    public void action1()
-    {
+    //public void action1()
+    //{
 
-        renderer.sprite = fix1;
-    }
+    //    renderer.sprite = fix1;
+    //}
     public void action2()
     {
 
-        Destroy(GetComponentInChildren<Talkable>().gameObject);
-        renderer.sprite = fix2;
+        //Destroy(GetComponentInChildren<Talkable>().gameObject);
+        //renderer.sprite = fix2;
         collider.enabled = false;
         //ItemInventoryManager.Instance.removeTokenableItem("key");
         //QuestManager.Instance.finishQuest("openGate");
@@ -48,10 +49,10 @@ public class ItemBridge : MonoBehaviour, IStatable
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            action1();
-        }
+        //if (Input.GetKeyDown(KeyCode.L))
+        //{
+        //    action1();
+        //}
         if (Input.GetKeyDown(KeyCode.K))
         {
             action2();
