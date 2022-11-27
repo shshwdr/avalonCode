@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class ItemInventoryMenu : MonoBehaviour
 {
+    public GameObject panel;
     ItemInventoryCell[] emptyInventoryCells;
     // Start is called before the first frame update
     void Start()
@@ -14,6 +15,8 @@ public class ItemInventoryMenu : MonoBehaviour
 
         emptyInventoryCells = GetComponentsInChildren<ItemInventoryCell>(true);
         inventoryChange();
+        panel.SetActive(false);
+        transform.position = Vector3.zero;
     }
 
     public void inventoryChange()
@@ -27,6 +30,19 @@ public class ItemInventoryMenu : MonoBehaviour
         for (; i < emptyInventoryCells.Length; i++)
         {
             emptyInventoryCells[i].init("");
+        }
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            panel.SetActive(true);
+        }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+
+            panel.SetActive(false);
         }
     }
 }

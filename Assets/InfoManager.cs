@@ -7,6 +7,7 @@ public class BaseInfo
     public string name;
     public string desc;
     public string title;
+    public string subtitle;
 
 }
 public class InfoManager<T,U> :   Singleton<T> where T : MonoBehaviour

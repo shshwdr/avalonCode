@@ -1,30 +1,30 @@
-﻿name,desc,title,start
-branch,,Branch,flammable|fragile
-dough,,Dough,
-bread,,Bread,filling
-oven,,Oven,
-baker,,Baker,
-rock,,Rock,
-gravel,,Gravel,
-key,,Key,
-woody,,Woody,
-jody,,Jody,
-gate,,Gate,
-theThing,,The Thing,impressive
-bluntAxe,,Blunt Axe,rusty
-axe,,Axe,shiny
-wetStone,,Wet Stone,sharp|wet
-brokenBridge,,Broken Bridge,shattered
-shakyBridge,,Shaky Bridge,dangerous
-solidBridge,,Solid Bridge,solid
-item,,Item,strong|sturdy
-berryBush,,berryBush,fruity
-amanita,,amanita,red|uplifting|wet
-mushroom,,mushroom,earthy|wet
-blueberry,,blueberry,fruity|blue
-easel,,easel,
-primedEasel,,primedEasel,
-paintFruitStillLife,,paintFruitStillLife,
-paintSunset,,paintSunset,
-fruitBread,,fruitBread,
-jean,,Jean,
+﻿name,desc,title,start,subtitle
+branch,,Branch,flammable|fragile,
+dough,,Dough,,
+bread,,Bread,filling,
+oven,,Oven,,
+baker,,Bert,,The Baker
+rock,,Rock,,
+gravel,,Gravel,,
+key,,Key,,
+woody,,Woody,,The Woodcutter
+jody,,Jody,,The Woodcutter
+gate,,Gate,,
+theThing,,The Thing,impressive,
+bluntAxe,,Blunt Axe,rusty,
+axe,,Axe,shiny,
+wetStone,,Wet Stone,sharp|wet,
+brokenBridge,,Broken Bridge,shattered,
+shakyBridge,,Shaky Bridge,dangerous,
+solidBridge,,Solid Bridge,solid,
+item,,Item,strong|sturdy,
+berryBush,,berryBush,fruity,
+amanita,,amanita,red|uplifting|wet,
+mushroom,,mushroom,earthy|wet,
+blueberry,,blueberry,fruity|blue,
+easel,,easel,,
+primedEasel,,primedEasel,,
+paintFruitStillLife,,paintFruitStillLife,,
+paintSunset,,paintSunset,,
+fruitBread,,fruitBread,,
+jean,,Jean,,The Artist

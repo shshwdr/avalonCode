@@ -10,6 +10,7 @@ public class InteractiveItem : MonoBehaviour
 {
     public GameObject pickUI;
     public Text interactiveText;
+    public Text interactiveSubText;
     public bool isInteractiveDisabled;
     PlayerPickup playerPickup;
     protected SpriteRenderer renderer;
@@ -86,7 +87,7 @@ public class InteractiveItem : MonoBehaviour
 
     }
     public virtual void prepareUI() { }
-    public void showPickupUI()
+    public virtual void showPickupUI()
     {
         if (!canShowInteractUI())
         {
@@ -100,7 +101,7 @@ public class InteractiveItem : MonoBehaviour
         //show pick up
         pickUI.SetActive(true);
     }
-    public void hidePickupUI()
+    public virtual void hidePickupUI()
     {
 
         //pickingUpBar.SetActive(false);
