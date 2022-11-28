@@ -37,7 +37,8 @@ public class ItemInventoryMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.I))
         {
-            panel.SetActive(true);
+            panel.SetActive(!panel.active);
+            
         }
         if (Input.GetKeyDown(KeyCode.Escape))
         {

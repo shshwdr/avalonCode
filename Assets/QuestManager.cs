@@ -285,6 +285,10 @@ info.state = QuestState.returnToNPC;
 
             NPCManager.Instance.npcScriptDict[returnNPC].canFinishQuest();
         }
+        else
+        {
+            finishQuest(name);
+        }
     }
 
 

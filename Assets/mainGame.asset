@@ -1166,7 +1166,7 @@ MonoBehaviour:
         height: 30
     entryGroups: []
     canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 0.6400004
+    canvasZoom: 0.61000043
   - id: 2
     fields:
     - title: Title
@@ -3521,7 +3521,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 9.592346, y: 29.6875}
+    canvasScrollPosition: {x: 325.21716, y: 85.93744}
     canvasZoom: 0.64000034
   - id: 4
     fields:
@@ -3654,13 +3654,13 @@ MonoBehaviour:
         destinationConversationID: 4
         destinationDialogueID: 24
         isConnector: 0
-        priority: 2
+        priority: 0
       - originConversationID: 4
         originDialogueID: 0
         destinationConversationID: 4
         destinationDialogueID: 25
         isConnector: 0
-        priority: 2
+        priority: 3
       - originConversationID: 4
         originDialogueID: 0
         destinationConversationID: 4
@@ -3741,13 +3741,7 @@ MonoBehaviour:
       delaySimStatus: 0
       falseConditionAction: Block
       conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 4
-        originDialogueID: 1
-        destinationConversationID: 4
-        destinationDialogueID: 2
-        isConnector: 0
-        priority: 2
+      outgoingLinks: []
       conditionsString: IsQuestToBeStart("talkToWoody")
       userScript: 'StartQuest("talkToWoody");
 
@@ -5460,7 +5454,7 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: IsQuestActive("talkToWoodyForBridge") or IsQuestFinished("talkToWoodyForBridge")
+      conditionsString: 
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -5530,15 +5524,15 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: IsQuestToBeStart("talkToWoodyForBridge")
-      userScript: StartQuest("talkToWoodyForBridge")
+      conditionsString: IsQuestToBeStart("bakeFruitBread")
+      userScript: StartQuest("bakeFruitBread")
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1378.5391
-        y: 138.4682
+        x: 1381.2788
+        y: 156.27641
         width: 160
         height: 30
     - id: 26
@@ -5599,8 +5593,8 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: 
-      userScript: 
+      conditionsString: IsQuestToBeFinish("bakeFruitBread")
+      userScript: FinishQuest("bakeFruitBread")
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -5749,8 +5743,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 441.79272, y: 30.333664}
-    canvasZoom: 0.7300003
+    canvasScrollPosition: {x: 0.83499527, y: 0}
+    canvasZoom: 0.5500005
   - id: 5
     fields:
     - title: Title
@@ -5864,7 +5858,7 @@ MonoBehaviour:
         destinationConversationID: 5
         destinationDialogueID: 1
         isConnector: 0
-        priority: 2
+        priority: 3
       - originConversationID: 5
         originDialogueID: 0
         destinationConversationID: 5
@@ -5876,7 +5870,7 @@ MonoBehaviour:
         destinationConversationID: 5
         destinationDialogueID: 15
         isConnector: 0
-        priority: 2
+        priority: 3
       - originConversationID: 5
         originDialogueID: 0
         destinationConversationID: 5
@@ -5888,7 +5882,7 @@ MonoBehaviour:
         destinationConversationID: 5
         destinationDialogueID: 18
         isConnector: 0
-        priority: 2
+        priority: 3
       - originConversationID: 5
         originDialogueID: 0
         destinationConversationID: 5
@@ -5900,13 +5894,13 @@ MonoBehaviour:
         destinationConversationID: 5
         destinationDialogueID: 16
         isConnector: 0
-        priority: 2
+        priority: 3
       - originConversationID: 5
         originDialogueID: 0
         destinationConversationID: 5
         destinationDialogueID: 37
         isConnector: 0
-        priority: 1
+        priority: 0
       - originConversationID: 5
         originDialogueID: 0
         destinationConversationID: 5
@@ -9039,8 +9033,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 96.61254, y: 13.14457}
-    canvasZoom: 0.46000046
+    canvasScrollPosition: {x: 0, y: 0}
+    canvasZoom: 0.64000034
   - id: 6
     fields:
     - title: Title
@@ -9583,8 +9577,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 1
+    canvasScrollPosition: {x: 23.422451, y: 57.991707}
+    canvasZoom: 0.8800001
   - id: 8
     fields:
     - title: Title
@@ -9690,7 +9684,7 @@ MonoBehaviour:
       isGroup: 0
       nodeColor: 
       delaySimStatus: 0
-      falseConditionAction: 
+      falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
       - originConversationID: 8
@@ -9711,6 +9705,12 @@ MonoBehaviour:
         destinationDialogueID: 3
         isConnector: 0
         priority: 2
+      - originConversationID: 8
+        originDialogueID: 0
+        destinationConversationID: 8
+        destinationDialogueID: 4
+        isConnector: 0
+        priority: 0
       conditionsString: 
       userScript: 
       onExecute:
@@ -9851,7 +9851,9 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: IsQuestToBeFinish("getColor")
-      userScript: StartQuest("paint")
+      userScript: 'StartQuest("paint");
+
+        FinishQuest("getColor")'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -9928,6 +9930,75 @@ MonoBehaviour:
         serializedVersion: 2
         x: 448.42096
         y: 81.84209
+        width: 160
+        height: 30
+    - id: 4
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Pictures
+        value: '[]'
+        type: 3
+        typeString: CustomFieldType_Files
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 9
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 6
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: I like painting.
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Parenthetical
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Audio Files
+        value: '[]'
+        type: 3
+        typeString: CustomFieldType_Files
+      - title: Video File
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: es
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      conversationID: 8
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 726.0525
+        y: 71.315796
         width: 160
         height: 30
     entryGroups: []

@@ -2,9 +2,9 @@
 dough,hot|fruity,,,,fruitBread,
 dough,hot,,,,bread,
 oven,flammable,,hot,,,
-rock,fragile,gravel,,1,,
+rock,fragile,gravel,,,,
 gravel,careful,,,,key,
-bluntAxe,sharp|rusty,axe,,1,,
+bluntAxe,sharp|rusty,axe,,,,
 brokenBridge,shattered|uplifting|uplifting,shakyBridge,,,,
 shakyBridge,dangerous|solid|sturdy,solidBridge,,,,2
 easel,red|blue|wet,primedEasel,,,,

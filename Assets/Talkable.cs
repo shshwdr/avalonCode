@@ -28,6 +28,12 @@ public class Talkable : InteractiveItem
     public override void showPickupUI()
     {
         base.showPickupUI();
+
+        if (!compressObject)
+        {
+            //Debug.LogError("cant hide " + transform.parent);
+            return;
+        }
         compressObject.SetActive(false);
         TutorialText.Instance.showSpaceText();
     }
@@ -36,7 +42,8 @@ public class Talkable : InteractiveItem
         base.hidePickupUI();
         if (!compressObject)
         {
-            Debug.LogError("cant hide "+transform.parent);
+            //Debug.LogError("cant hide "+transform.parent);
+            return;
         }
         compressObject.SetActive(true);
         TutorialText.Instance.hideSpaceText();

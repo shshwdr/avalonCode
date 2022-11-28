@@ -73,7 +73,7 @@ public class PlayerPickup : MonoBehaviour
             var collectablesT = new List<InteractiveItem>();
             foreach(var collectable in collectables)
             {
-                if(collectable!= null)
+                if(collectable!= null && collectable.gameObject.activeInHierarchy)
                 {
                     collectablesT.Add(collectable);
                 }
@@ -88,7 +88,7 @@ public class PlayerPickup : MonoBehaviour
         }
         lastClosest = collectables[closestIndex];
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (!DialogueUtils.Instance.isInDialogue && Input.GetKeyDown(KeyCode.Space))
         {
             if (lastClosest)
             {

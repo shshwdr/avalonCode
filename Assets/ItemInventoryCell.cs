@@ -13,8 +13,10 @@ public class ItemInventoryCell:MonoBehaviour
     {
         if(n == "")
         {
+            renderer.gameObject.SetActive(false);
             renderer.sprite = null;
         }
+        renderer.gameObject.SetActive(true);
         name = n;
         renderer.sprite = Resources.Load<Sprite>("item/" + name);
     }

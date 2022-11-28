@@ -27,7 +27,6 @@ public class QuestCell : MonoBehaviour
             //    text.color = Color.green;
             var s = "Talk to " + info.returnNPC;
             currentText = s;
-            currentCell.GetComponentInChildren<Text>().text = currentText;
             //var strikethrough = "";
             //foreach (char c in s)
             //{
@@ -39,6 +38,8 @@ public class QuestCell : MonoBehaviour
         //{
         //    text.color = Color.black;
         //}
+
+        currentCell.GetComponentInChildren<Text>().text = currentText;
         title.text = info.serialQuestName;
     }
 }
