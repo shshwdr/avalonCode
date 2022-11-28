@@ -17,7 +17,7 @@ public class TokenableItem : MonoBehaviour
     {
         info = ItemManager.Instance.getInfo(name);
         //add start token
-        if (info.start!=null)
+        if (info.start!=null && info.start.Count>0 && info.start[0] != "")
         {
 
             for (int i = 0; i < info.start.Count; i++)

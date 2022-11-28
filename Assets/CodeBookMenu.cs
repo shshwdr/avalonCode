@@ -14,6 +14,8 @@ public class CodeBookMenu : MonoBehaviour
     TokenInventoryCell[] emptyGridCells;
     public Button generateButton;
 
+    RecipeCell[] recipeCells;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +26,8 @@ public class CodeBookMenu : MonoBehaviour
 
         emptyGridCells = GetComponentsInChildren<TokenInventoryCell>(true);
         selectInteractiveItem();
+
+        recipeCells = GetComponentsInChildren<RecipeCell>(true);
     }
     //void titleChange(string t)
     //{
@@ -70,15 +74,32 @@ public class CodeBookMenu : MonoBehaviour
             for (; i < selectItem.tokens.Count; i++)
             {
                 emptyGridCells[i].gameObject.SetActive(true);
-                emptyGridCells[i].init(selectItem.tokens[i],false);
+                emptyGridCells[i].init(selectItem.tokens[i], false);
             }
             for (; i < emptyGridCells.Length; i++)
             {
                 emptyGridCells[i].gameObject.SetActive(false);
             }
 
+            //show all posible results
+            i = 0;
+            if (ItemTokenCombination.Instance.getInfo(name)!=null)
+            {
+                foreach (var comb in ItemTokenCombination.Instance.getInfo(name))
+                {
+                    recipeCells[i].gameObject.SetActive(true);
+                    recipeCells[i].init(comb);
+                    i++;
+                }
+            }
+            for(;i< recipeCells.Length; i++)
+            {
+
+                recipeCells[i].gameObject.SetActive(false);
+            }
+
             StartCoroutine(turnOnView());
-        } 
+        }
         else
         {
 

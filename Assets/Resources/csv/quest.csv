@@ -11,4 +11,4 @@ talkToWoodyForBridge,Talk to Woody,jody,woody,,openGate,none,,,★ You shall not
 makeBridgeNotShattered,Life Bridge,,woody,,none,hasItemOnGround,solidBridge,,★ You shall not pass!
 bakeFruitBread,Bake Fruit Bread,jody,jody,,openGate,hasItem,fruitBread,,★ Memories of the past
 getColor,Prepare the palette,jean,jean,,openGate,hasItemOnGround,primedEasel,,★ Nature is a great artist
-paint,Paint!,,jean,,getColor,notHasItemOnGround,primedEasel,,★ Nature is a great artist
+paint,Paint!,,jean,,getColor,hasItem,paintFruitStillLife,,★ Nature is a great artist

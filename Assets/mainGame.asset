@@ -225,7 +225,7 @@ MonoBehaviour:
       value: Jody the Woodcutter
       type: 0
       typeString: 
-    portrait: {fileID: 2800000, guid: 6ac565a50f1da6e48988f3d3dc618d12, type: 3}
+    portrait: {fileID: 2800000, guid: 74939d10c51b80e49bca65075b68e78e, type: 3}
     spritePortrait: {fileID: 0}
     alternatePortraits: []
     spritePortraits: []
@@ -255,7 +255,7 @@ MonoBehaviour:
       value: Woody the Woodcutter
       type: 0
       typeString: 
-    portrait: {fileID: 2800000, guid: cee88e6dd0224b949a3230a5cef1622c, type: 3}
+    portrait: {fileID: 2800000, guid: f72f44d15f6f328438a46fe0d2d2333e, type: 3}
     spritePortrait: {fileID: 0}
     alternatePortraits: []
     spritePortraits: []
@@ -285,7 +285,7 @@ MonoBehaviour:
       value: Jean the artist
       type: 0
       typeString: 
-    portrait: {fileID: 0}
+    portrait: {fileID: 2800000, guid: f0ede0ef0da4e354081dd8d7633f3636, type: 3}
     spritePortrait: {fileID: 0}
     alternatePortraits: []
     spritePortraits: []
@@ -3670,12 +3670,6 @@ MonoBehaviour:
       - originConversationID: 4
         originDialogueID: 0
         destinationConversationID: 4
-        destinationDialogueID: 27
-        isConnector: 0
-        priority: 2
-      - originConversationID: 4
-        originDialogueID: 0
-        destinationConversationID: 4
         destinationDialogueID: 28
         isConnector: 0
         priority: 2
@@ -4806,7 +4800,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 646.635
-        y: 219.91205
+        y: 218.2727
         width: 160
         height: 30
     - id: 16
@@ -5675,9 +5669,7 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: IsQuestToBeFinish("makeBridgeNotShattered")
-      userScript: 'StartQuest("fixBridge");
-
-        FinishQuest("makeBridgeNotShattered")'
+      userScript: FinishQuest("makeBridgeNotShattered")
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -5745,8 +5737,8 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: IsQuestToBeFinish("fixBridge")
-      userScript: FinishQuest("fixBridge")
+      conditionsString: IsQuestToBeFinish("makeBridgeNotShattered")
+      userScript: FinishQuest("makeBridgeNotShattered")
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -5757,8 +5749,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 401.43228, y: 0}
-    canvasZoom: 0.6100004
+    canvasScrollPosition: {x: 441.79272, y: 30.333664}
+    canvasZoom: 0.7300003
   - id: 5
     fields:
     - title: Title

@@ -9,6 +9,10 @@ public class BaseInfo
     public string title;
     public string subtitle;
 
+    public Sprite image
+    {
+        get { return Resources.Load<Sprite>("item/" + name); }
+    }
 }
 public class InfoManager<T,U> :   Singleton<T> where T : MonoBehaviour
 {
