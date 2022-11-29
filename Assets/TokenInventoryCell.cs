@@ -18,6 +18,10 @@ public class TokenInventoryCell : MonoBehaviour
     {
 
         button = GetComponentInChildren<Button>();
+        if (!button)
+        {
+            return;
+        }
         button.onClick.AddListener(delegate
         {
             if (MouseInputManager.Instance.selectedItem)

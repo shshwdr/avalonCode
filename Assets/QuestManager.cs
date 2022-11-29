@@ -289,6 +289,10 @@ info.state = QuestState.returnToNPC;
         {
             finishQuest(name);
         }
+
+        DialogueManager.PlaySequence("SetActive(branchAttention,false);");
+
+        DialogueManager.PlaySequence("SetActive(ovenAttention,false);"); 
     }
 
 

@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -21,11 +21,11 @@ public class QuestCell : MonoBehaviour
 
     public void updateCell(QuestInfo info)
     {
-        var currentText = info.title;
+        var currentText = "❖"+info.title;
         if(info.state == QuestState.returnToNPC)
         {
             //    text.color = Color.green;
-            var s = "Talk to " + info.returnNPC;
+            var s = "❖Talk to " + info.returnNPC;
             currentText = s;
             //var strikethrough = "";
             //foreach (char c in s)

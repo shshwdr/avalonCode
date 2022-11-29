@@ -14,6 +14,7 @@ public class RecipeCell : MonoBehaviour
     void Start()
     {
         tokenCells = GetComponentsInChildren<TokenInventoryCell>(true);
+        OnMouseExit();
     }
     public void init(ItemTokenInfo r)
     {
@@ -58,12 +59,12 @@ public class RecipeCell : MonoBehaviour
     {
         
     }
-    private void OnMouseEnter()
+    public void OnMouseEnter()
     {
         recipeIngredients.SetActive(true);
     }
 
-    private void OnMouseExit()
+    public void OnMouseExit()
     {
         recipeIngredients.SetActive(false);
     }

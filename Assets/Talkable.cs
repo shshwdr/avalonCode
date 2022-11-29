@@ -5,7 +5,6 @@ using UnityEngine;
 public class Talkable : InteractiveItem
 {
     ItemInfo itemInfo;
-    public GameObject compressObject;
     //NPC npc;
     public override void Start()
     {
@@ -29,24 +28,10 @@ public class Talkable : InteractiveItem
     {
         base.showPickupUI();
 
-        if (!compressObject)
-        {
-            //Debug.LogError("cant hide " + transform.parent);
-            return;
-        }
-        compressObject.SetActive(false);
-        TutorialText.Instance.showSpaceText();
     }
     public override void hidePickupUI()
     {
         base.hidePickupUI();
-        if (!compressObject)
-        {
-            //Debug.LogError("cant hide "+transform.parent);
-            return;
-        }
-        compressObject.SetActive(true);
-        TutorialText.Instance.hideSpaceText();
     }
 
     protected override bool canShowInteractUI()

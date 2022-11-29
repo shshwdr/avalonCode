@@ -39,6 +39,10 @@ public class MyLuaFunctions : Singleton<MyLuaFunctions>
 
         Lua.RegisterFunction("ChangeItemState", this, SymbolExtensions.GetMethodInfo(() => ChangeItemState(string.Empty, string.Empty)));
         Lua.RegisterFunction("ItemState", this, SymbolExtensions.GetMethodInfo(() => ItemState(string.Empty)));
+
+        //tutorial
+        Lua.RegisterFunction("ShowTutorialInventoryText", this, SymbolExtensions.GetMethodInfo(() => ShowTutorialInventoryText()));
+        
     }
 
     void OnDisable()
@@ -111,6 +115,11 @@ public class MyLuaFunctions : Singleton<MyLuaFunctions>
     public void SetToReturnToNPC(string name)
     {
         QuestManager.Instance.setToReturnToNPC(name);
+    }
+
+    public void ShowTutorialInventoryText()
+    {
+        TutorialText.Instance.showInventoryText();
     }
     
 

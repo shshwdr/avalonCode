@@ -14,6 +14,7 @@ public class InteractiveItem : MonoBehaviour
     public bool isInteractiveDisabled;
     PlayerPickup playerPickup;
     protected SpriteRenderer renderer;
+    public GameObject compressObject;
     //public GameObject pickingUpBar;
     // Start is called before the first frame update
     public virtual void Start()
@@ -84,7 +85,7 @@ public class InteractiveItem : MonoBehaviour
         }
         pickUI.SetActive(false);
 
-
+        TutorialText.Instance.triggerSpace();
     }
     public virtual void prepareUI() { }
     public virtual void showPickupUI()
@@ -100,6 +101,15 @@ public class InteractiveItem : MonoBehaviour
         prepareUI();
         //show pick up
         pickUI.SetActive(true);
+
+        if (!compressObject)
+        {
+            //Debug.LogError("cant hide " + transform.parent);
+            return;
+        }
+        compressObject.SetActive(false);
+
+        TutorialText.Instance.showSpaceText();
     }
     public virtual void hidePickupUI()
     {
@@ -107,6 +117,14 @@ public class InteractiveItem : MonoBehaviour
         //pickingUpBar.SetActive(false);
         //show pick up
         pickUI.SetActive(false);
+
+        if (!compressObject)
+        {
+            //Debug.LogError("cant hide "+transform.parent);
+            return;
+        }
+        compressObject.SetActive(true);
+        TutorialText.Instance.hideSpaceText();
     }
 
     public void disableInteractive()

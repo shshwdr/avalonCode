@@ -38,7 +38,10 @@ public class ItemInventoryMenu : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.I))
         {
             panel.SetActive(!panel.active);
-            
+            TutorialText.Instance.triggerInventory();
+
+            TutorialText.Instance.hideInventoryText();
+
         }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
