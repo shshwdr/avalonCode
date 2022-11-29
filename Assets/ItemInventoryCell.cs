@@ -15,6 +15,7 @@ public class ItemInventoryCell:MonoBehaviour
         {
             renderer.gameObject.SetActive(false);
             renderer.sprite = null;
+            return;
         }
         renderer.gameObject.SetActive(true);
         name = n;

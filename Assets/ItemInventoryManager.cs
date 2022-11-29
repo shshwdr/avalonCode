@@ -35,4 +35,12 @@ public class ItemInventoryManager : Singleton<ItemInventoryManager>
         items.Remove(itemName);
         EventPool.Trigger("updateTokenableItemInventory");
     }
+
+    public void Update()
+    {
+        //if (Input.GetKeyDown(KeyCode.M))
+        //{
+        //    addTokenableItem("bread");
+        //}
+    }
 }

@@ -71,7 +71,10 @@ public class TokenInventoryCell : MonoBehaviour
         if (info.state == "fixed")
         {
             fixedFrame.SetActive(true);
-            button.interactable = false;
+            if (button)
+            {
+                button.interactable = false;
+            }
 
         }
         else
