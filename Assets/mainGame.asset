@@ -2028,7 +2028,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: Continue()
         type: 0
         typeString: CustomFieldType_Text
       - title: es
@@ -2104,7 +2104,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: Continue()
         type: 0
         typeString: CustomFieldType_Text
       - title: es
@@ -3526,7 +3526,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 9.83606, y: 205.78879}
+    canvasScrollPosition: {x: 3.2786865, y: 35.965775}
     canvasZoom: 0.6100004
   - id: 4
     fields:

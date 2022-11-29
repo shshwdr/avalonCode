@@ -17,6 +17,7 @@ public class ItemInventoryManager : Singleton<ItemInventoryManager>
         QuestManager.Instance.updateQuestFromNoWhere();
         EventPool.Trigger("updateTokenableItemInventory");
         TutorialText.Instance.showInventoryText();
+        PopupImageManager.Instance.showAnim(item);
     }
 
     public bool hasTokenableItem(string itemName)
