@@ -17,6 +17,7 @@ public class ItemInventoryManager : Singleton<ItemInventoryManager>
         QuestManager.Instance.updateQuestFromNoWhere();
         EventPool.Trigger("updateTokenableItemInventory");
         TutorialText.Instance.showInventoryText();
+        PopupImageManager.Instance.showAnim(item);
     }
 
     public bool hasTokenableItem(string itemName)
@@ -33,5 +34,13 @@ public class ItemInventoryManager : Singleton<ItemInventoryManager>
         }
         items.Remove(itemName);
         EventPool.Trigger("updateTokenableItemInventory");
+    }
+
+    public void Update()
+    {
+        //if (Input.GetKeyDown(KeyCode.M))
+        //{
+        //    addTokenableItem("bread");
+        //}
     }
 }

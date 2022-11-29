@@ -1,6 +1,6 @@
 ﻿item,token,itemChange,generateToken,destroyCombine,generateInventory,stateChange
-dough,hot|fruity,,,,fruitBread,
-dough,hot,,,,bread,
+dough,hot|fruity,,uplifting,,fruitBread,
+dough,hot,,uplifting,,bread,
 oven,flammable,,hot,,,
 rock,fragile,gravel,,,,
 gravel,careful,,,,key,

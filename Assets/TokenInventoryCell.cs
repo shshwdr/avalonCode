@@ -59,7 +59,10 @@ public class TokenInventoryCell : MonoBehaviour
             }
             return;
         }
-        button.interactable = true;
+        if (button)
+        {
+            button.interactable = true;
+        }
         name = n;
         var info = TokenManager.Instance.getInfo(name);
         isInventory = inv;
@@ -68,7 +71,10 @@ public class TokenInventoryCell : MonoBehaviour
         if (info.state == "fixed")
         {
             fixedFrame.SetActive(true);
-            button.interactable = false;
+            if (button)
+            {
+                button.interactable = false;
+            }
 
         }
         else

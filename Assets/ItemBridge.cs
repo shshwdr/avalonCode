@@ -53,9 +53,9 @@ public class ItemBridge : MonoBehaviour, IStatable
         //{
         //    action1();
         //}
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            action2();
-        }
+        //if (Input.GetKeyDown(KeyCode.K))
+        //{
+        //    action2();
+        //}
     }
 }
