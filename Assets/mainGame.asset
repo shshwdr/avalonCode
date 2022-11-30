@@ -195,7 +195,7 @@ MonoBehaviour:
       value: 
       type: 4
       typeString: CustomFieldType_Localization
-    portrait: {fileID: 2800000, guid: 76f16e286085b4340baf9fac224c029b, type: 3}
+    portrait: {fileID: 2800000, guid: 881f4ce5e8dc4ad4cad5a45f04c463c3, type: 3}
     spritePortrait: {fileID: 0}
     alternatePortraits: []
     spritePortraits: []

@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,7 +17,7 @@ public class TokenInventoryCell : MonoBehaviour
 
     private void Start()
     {
-
+        originalY = 0;
         button = GetComponentInChildren<Button>();
         if (!button)
         {
@@ -82,5 +83,21 @@ public class TokenInventoryCell : MonoBehaviour
             fixedFrame.SetActive(false);
         }
 
+    }
+
+    public GameObject highLight;
+    float moveUpLength = 80;
+    float moveTime = 0.3f;
+    float originalY;
+    public void onHover()
+    {
+        highLight.SetActive(true);
+        transform.DOMoveY(originalY+moveUpLength, moveTime);
+    }
+    public void onExit()
+    {
+
+        highLight.SetActive(false);
+        transform.DOMoveY(originalY, moveTime);
     }
 }
