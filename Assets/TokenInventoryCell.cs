@@ -17,7 +17,6 @@ public class TokenInventoryCell : MonoBehaviour
 
     private void Start()
     {
-        originalY = 0;
         button = GetComponentInChildren<Button>();
         if (!button)
         {
@@ -86,18 +85,24 @@ public class TokenInventoryCell : MonoBehaviour
     }
 
     public GameObject highLight;
-    float moveUpLength = 80;
+    float moveUpLength = 90;
     float moveTime = 0.3f;
-    float originalY;
+    float originalY = 0;
     public void onHover()
     {
+        //if (originalY == -1000)
+        //{
+        //    originalY = transform.position.y;
+        //}
         highLight.SetActive(true);
-        transform.DOMoveY(originalY+moveUpLength, moveTime);
+        transform.DOLocalMoveY(originalY+moveUpLength, moveTime);
     }
     public void onExit()
     {
 
         highLight.SetActive(false);
-        transform.DOMoveY(originalY, moveTime);
+        transform.DOLocalMoveY(originalY, moveTime);
     }
+    //UnityEditor.TransformWorldPlacementJSON:{"position":{"x":867.75,"y":0.0,"z":0.0},"rotation":{"x":0.0,"y":0.0,"z":0.0,"w":1.0},"scale":{"x":1.0,"y":1.0,"z":1.0}}
+    //UnityEditor.TransformWorldPlacementJSON:{"position":{"x":-179.25,"y":-90.0,"z":0.0},"rotation":{"x":0.0,"y":0.0,"z":0.0,"w":1.0},"scale":{"x":1.0,"y":1.0,"z":1.0}}
 }

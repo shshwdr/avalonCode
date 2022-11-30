@@ -97,18 +97,18 @@ public class TokenableItem : MonoBehaviour
                // Destroy(gameObject);
                 MouseInputManager.Instance.selectItem(null);
             }
-            else if (generatableCombination.generateToken != "")
-            {
-                addToken(generatableCombination.generateToken);
-            }
-            else if (generatableCombination.generateInventory != "")
+            if (generatableCombination.generateInventory != "")
             {
                 ItemInventoryManager.Instance.addTokenableItem(generatableCombination.generateInventory);
             }
-            else
+            if (generatableCombination.generateToken != "")
             {
-                Debug.LogError("no item change and no token generation for " + generatableCombination.item);
+                addToken(generatableCombination.generateToken);
             }
+            //else
+            //{
+            //    Debug.LogError("no item change and no token generation for " + generatableCombination.item);
+            //}
 
             //if (shouldDestory)
             //{
