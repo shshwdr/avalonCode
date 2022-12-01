@@ -29,7 +29,7 @@ public class ItemGate : MonoBehaviour,IStatable
         //collider.enabled = false;
         leftWing.transform.DORotate(new Vector3(0, openDegree, 0), openTime);
         rightWing.transform.DORotate(new Vector3(0, -openDegree, 0), openTime);
-        ItemInventoryManager.Instance.removeTokenableItem("key");
+        //ItemInventoryManager.Instance.removeTokenableItem("key");
         QuestManager.Instance.finishQuest("openGate");
         this.enabled = false;
     }

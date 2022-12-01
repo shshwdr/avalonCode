@@ -59,8 +59,18 @@ public class TokenableItem : MonoBehaviour
 
     public bool canGeneration()
     {
-        
-        return generatableCombination!=null;
+
+        bool res = generatableCombination != null;
+
+        //if (res)
+        //{
+        //    if (generatableCombination.generateInventory != "" && ItemInventoryManager.Instance.hasTokenableItem(generatableCombination.generateInventory))
+        //    {
+        //        res = false;
+        //    }
+        //}
+
+        return res;
     }
 
     public ItemTokenInfo getGeneratableCombination()
@@ -97,11 +107,11 @@ public class TokenableItem : MonoBehaviour
                // Destroy(gameObject);
                 MouseInputManager.Instance.selectItem(null);
             }
-            if (generatableCombination.generateInventory != "")
+            if (generatableCombination!=null && generatableCombination.generateInventory != "")
             {
                 ItemInventoryManager.Instance.addTokenableItem(generatableCombination.generateInventory);
             }
-            if (generatableCombination.generateToken != "")
+            if (generatableCombination != null && generatableCombination.generateToken != "")
             {
                 addToken(generatableCombination.generateToken);
             }

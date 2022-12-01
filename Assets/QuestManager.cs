@@ -148,7 +148,14 @@ public class QuestManager : InfoManager<QuestManager, QuestInfo>
                         }
                         break;
                     case "hasItem":
-                        if (!ItemInventoryManager.Instance.hasTokenableItem(info.typeCategory))
+                        if ("paintFruitStillLife" == info.typeCategory)
+                        {
+                            if (!ItemInventoryManager.Instance.hasTokenableItem(info.typeCategory) && !ItemInventoryManager.Instance.hasTokenableItem("paintSunset"))
+                            {
+                                isFinished = false;
+                            }
+                        }
+                        else if (!ItemInventoryManager.Instance.hasTokenableItem(info.typeCategory))
                         {
                             isFinished = false;
                         }
@@ -499,6 +506,10 @@ info.state = QuestState.returnToNPC;
     }
     public void finishQuest(string name)
     {
+        if(name == "getKey")
+        {
+            activateQuest("addToken");
+        }
         GameManager.Instance.player.playSuccessAnim();
         //MusicManager.Instance.playSound(finishQuestSFX);
         var info = infoDict[name];

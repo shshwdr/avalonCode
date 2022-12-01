@@ -8,5 +8,5 @@ bluntAxe,sharp|rusty,axe,,,,
 brokenBridge,shattered|uplifting|uplifting,shakyBridge,,,,
 shakyBridge,dangerous|solid|sturdy,solidBridge,,,,2
 easel,red|blue|wet,primedEasel,,,,
-primedEasel,fruity|impressive|uplifting,,,,paintFruitStillLife,
-primedEasel,hot|shiny|impressive,,,,paintSunset,
+primedEasel,fruity|impressive|uplifting,,solid,,paintFruitStillLife,
+primedEasel,hot|shiny|impressive,,solid,,paintSunset,

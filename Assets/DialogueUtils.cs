@@ -20,7 +20,11 @@ public class DialogueUtils : Singleton<DialogueUtils>
     }
     public void startConversation()
     {
-        playerPick.isPickingUp = true;
+        if (playerPick)
+        {
+
+            playerPick.isPickingUp = true;
+        }
         isInDialogue = true;
         MouseInputManager.Instance.selectItem(null);
         foreach (var item in hideItems)
