@@ -3,7 +3,7 @@ findFlammable,Find something flammable,baker,baker,,,hasToken,flammable,,★ Ain
 checkOven,Check the oven,,baker,,none,hasToken,hot,,★ Ain’t no bread without an oven
 cookBread,Cook the bread,,baker,,none,hasItem,bread,,★ Ain’t no bread without an oven
 talkToWoody,Talk to Woody,jody,woody,,cookBread,none,,,★ Enter at your own risk
-getKey,Get the key from under the rock,jody,,,,hasItem,key,,★ Enter at your own risk
+getKey,Get the key from under the rock,,,,none,hasItem,key,,★ Enter at your own risk
 openGate,Open the gate,,,,none,special,,,★ Enter at your own risk
 checkTheThing,Check the thing in the thicket,,woody,,none,special,,,★ The thing in the thicket
 brokenAxe,Fix Woodies Axe,,woody,,none,hasItemOnGround,axe,,★ The broken axe
