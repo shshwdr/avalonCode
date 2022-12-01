@@ -506,10 +506,6 @@ info.state = QuestState.returnToNPC;
     }
     public void finishQuest(string name)
     {
-        if(name == "getKey")
-        {
-            activateQuest("addToken");
-        }
         GameManager.Instance.player.playSuccessAnim();
         //MusicManager.Instance.playSound(finishQuestSFX);
         var info = infoDict[name];
@@ -529,6 +525,10 @@ info.state = QuestState.returnToNPC;
             NPCManager.Instance.npcScriptDict[returnNPC].hideAllQuestMarkers();
         }
 
+        if (name == "getKey")
+        {
+            activateQuest("openGate");
+        }
         updateQuestFromNoWhere();
     }
 

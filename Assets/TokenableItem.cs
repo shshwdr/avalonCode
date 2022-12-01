@@ -59,18 +59,8 @@ public class TokenableItem : MonoBehaviour
 
     public bool canGeneration()
     {
-
-        bool res = generatableCombination != null;
-
-        //if (res)
-        //{
-        //    if (generatableCombination.generateInventory != "" && ItemInventoryManager.Instance.hasTokenableItem(generatableCombination.generateInventory))
-        //    {
-        //        res = false;
-        //    }
-        //}
-
-        return res;
+        
+        return generatableCombination!=null;
     }
 
     public ItemTokenInfo getGeneratableCombination()
