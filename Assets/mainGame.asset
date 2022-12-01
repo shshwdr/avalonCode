@@ -11273,7 +11273,7 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: 
+      conditionsString: HasItem("key")
       userScript: ChangeItemState("gate","1")
       onExecute:
         m_PersistentCalls:
