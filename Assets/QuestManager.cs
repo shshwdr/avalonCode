@@ -69,7 +69,7 @@ public class QuestManager : InfoManager<QuestManager, QuestInfo>
     IEnumerator test()
     {
         //build this when all item is ready
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSecondsRealtime(0.5f);
 
         updateQuestFromNoWhere();
     }

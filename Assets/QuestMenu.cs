@@ -10,7 +10,7 @@ public class QuestMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        cells = GetComponentsInChildren<QuestCell>();
+        cells = GetComponentsInChildren<QuestCell>(true);
         UpdateQuest();
         EventPool.OptIn("updateQuest", UpdateQuest);
     }

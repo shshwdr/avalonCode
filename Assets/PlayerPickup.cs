@@ -119,7 +119,7 @@ public class PlayerPickup : MonoBehaviour
     }
     public IEnumerator fullyFinishFishing()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSecondsRealtime(0.5f);
         isPickingUp = false;
     }
 

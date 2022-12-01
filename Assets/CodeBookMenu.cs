@@ -35,7 +35,7 @@ public class CodeBookMenu : MonoBehaviour
     //}
     IEnumerator test()
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSecondsRealtime(0.1f);
         codeBookOB.SetActive(false);
     }
 
@@ -48,7 +48,7 @@ public class CodeBookMenu : MonoBehaviour
     bool isOn;
     IEnumerator turnOnView()
     {
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSecondsRealtime(0.2f);
         isOn = true;
     }
     void selectInteractiveItem()
