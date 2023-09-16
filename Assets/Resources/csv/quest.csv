@@ -8,7 +8,7 @@ openGate,Open the gate,,,,none,special,,,★ Enter at your own risk
 checkTheThing,Check the thing in the thicket,,woody,,none,special,,,★ The thing in the thicket
 brokenAxe,Fix Woodies Axe,,woody,,none,hasItemOnGround,axe,,★ The broken axe
 talkToWoodyForBridge,Talk to Woody,jody,woody,,openGate,none,,,★ You shall not pass!
-makeBridgeNotShattered,Life Bridge,,woody,,none,hasItemOnGround,solidBridge,,★ You shall not pass!
+makeBridgeNotShattered,Lift Bridge,,woody,,none,hasItemOnGround,solidBridge,,★ You shall not pass!
 bakeFruitBread,Bake a fruit bread for Jody,jody,jody,,openGate,hasItem,fruitBread,,★ Memories of the past
 getColor,Prepare the palette,jean,jean,,openGate,hasItemOnGround,primedEasel,,★ Nature is a great artist
 paint,Paint!,,jean,,getColor,hasItem,paintFruitStillLife,,★ Nature is a great artist
